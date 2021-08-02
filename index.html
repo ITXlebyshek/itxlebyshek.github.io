@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link href="fonts/fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" crossorigin="anonymous" />
-    <title>Document</title>
+	<link rel="stylesheet" href="fonts/fontawesome-free-5.15.3-web/css/all.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" crossorigin="anonymous" />
+	<link rel="stylesheet" href="css/style.css">
+	<title>Document</title>
 </head>
+
 <body>
 
-    
+
 
 	<header class="desktop-nav">
-        <div id="desktop-topbar">
-            <div class="container">
-                <div class="topbar">
-    
-                    <div class="logo-desctop">
-                        <a href=""><img src="img/logo.png" alt=""></a>
-                    </div>
-        
-                    
-        
-                    <div class="contact-nav">
-                        <a href="tel:+8 800 555 35 35"><i class="fa fa-phone"></i> <span>8(951)3594433</span></a>
-                        <a href="mailto:asteri-el@example.com"><i class="fa fa-phone"></i> <span>Написать нам!</span></a>
-                    </div>
-    
-                    <div class="navbar-expand-lg">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-                            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </div>
-    
-                </div>
-                
-    
-            </div>
-        </div>
+		<div id="desktop-topbar">
+			<div class="container">
+				<div class="topbar">
+
+					<div class="logo-desctop">
+						<span>Asteri</span>
+						<!-- <a href=""><img src="img/logo.png" alt=""></a> -->
+						<div class="desc">Наша компания занимается такими вещами</div>
+					</div>
+
+
+
+					<div class="contact-nav">
+						<a href="tel:+8 800 555 35 35"><i class="fa fa-phone"></i> <span>8(951)3594433</span></a>
+						<a href="mailto:asteri-el@example.com"><i class="fa fa-envelope"></i> <span>Написать
+								нам!</span></a>
+					</div>
+
+					<div class="navbar-expand-lg">
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+							aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+							<!-- <i class="fa fa-bars"></i> -->
+							<div id="nav-icon3">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+
+						</button>
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
 		<nav class="navbar navbar-light navbar-expand-lg">
 			<div class="container">
 				<div class="collapse navbar-collapse" id="navbar">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Главная</a>
+							<a class="nav-link active" aria-current="page" href="index.html">О компании</a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="">О компании</a>
+							<a class="nav-link" href="other-page.html">Электронные компоненты</a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="">Статьи</a>
+							<a class="nav-link" href="">Печатные платы</a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="">Калькулятор</a>
+							<a class="nav-link" href="">Проектирование</a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="">Контакты</a>
+							<a class="nav-link" href="">Контркатное производство</a>
 						</li>
 					</ul>
 				</div>
@@ -74,227 +88,240 @@
 		</nav>
 
 	</header>
-    <main>
-        <section id='intro'>
-            <div class="container">
-                <div class="swiper-container intro-slider">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
-                      <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
-                      <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
-                      <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
-                      <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                  </div>
-            </div>
-        </section>
+	<main>
+		<section id='intro'>
+			<div class="container">
+				<div class="swiper-container intro-slider" data-aos="zoom-in" data-aos-duration="250"
+					data-aos-delay="400">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="img/3.jpg" alt="">
+							<div class="slider-desc">
 
-        <section id="about">
-            <div class="container">
-                <div class="title">Ipsum dolor</div>
-                <div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam commodi nulla, culpa assumenda perspiciatis placeat non deserunt ab fugit odio vitae, ratione porro quasi ullam? Laboriosam accusantium nihil soluta corrupti!</div>
-            </div>
-        </section>
+								<div class="content">
+									<h1>Lorem ipsum dolor sit amet consectetur.</h1>
+									<p>A necessitatibus, illo esse dolorum odit ad minus voluptate illum vero
+										repellendus.
+									</p>
+								</div>
+
+							</div>
+						</div>
+						<div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="about" data-aos="fade-up" data-aos-duration="400" data-aos-delay="550">
+			<div class="container">
+				<div class="title">О компании</div>
+				<div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam commodi nulla, culpa
+					assumenda perspiciatis placeat non deserunt ab fugit odio vitae, ratione porro quasi ullam?
+					Laboriosam accusantium nihil soluta corrupti!</div>
+			</div>
+		</section>
 
 
-        <section id="category">
-            <div class="container">
-                <div class="title">
-                    Разделы
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="item">
-                            <img src="img/3.jpg" alt="">
-                            <div class="title">Электронные компоненты</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="item">
-                            <img src="img/3.jpg" alt="">
-                            <div class="title">Электронные компоненты</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="item">
-                            <img src="img/3.jpg" alt="">
-                            <div class="title">Электронные компоненты</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="item">
-                            <img src="img/3.jpg" alt="">
-                            <div class="title">Электронные компоненты</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+		<section id="category">
+			<div class="container">
+				<div class="title" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="850">
+					Разделы
+				</div>
+				<div class="row">
+					<div class="col-lg-6" data-aos="fade-up" data-aos-duration="400" data-aos-delay="350">
+						<a href="">
+							<div class="item">
+								<img src="img/3.jpg" alt="">
+								<div class="title">Электронные компоненты</div>
+							</div>
+						</a>
+					</div>
+					<div class="col-lg-6" data-aos="fade-up" data-aos-duration="400" data-aos-delay="350">
+						<a href="">
+							<div class="item">
+								<img src="img/3.jpg" alt="">
+								<div class="title">Печатные платы</div>
+							</div>
+						</a>
+					</div>
+					<div class="col-lg-6" data-aos="fade-up" data-aos-duration="400" data-aos-delay="350">
+						<a href="">
+							<div class="item">
+								<img src="img/3.jpg" alt="">
+								<div class="title">Проектирование</div>
+							</div>
+						</a>
+					</div>
+					<div class="col-lg-6" data-aos="fade-up" data-aos-duration="400" data-aos-delay="350">
+						<a href="">
+							<div class="item">
+								<img src="img/3.jpg" alt="">
+								<div class="title">Контркатное производство</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <section id="benefits">
-            <div class="container">
-                <div class="title">
-                Наши преимущества
-                </div>
+		<section id="benefits">
+			<div class="container">
+				<div class="title" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="350">
+					Наши преимущества
+				</div>
 
-    
-                <div class="row">
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                        <h4><a href="">Lorem Ipsum</a></h4>
-                        <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                    </div>
-                    </div>
-        
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-file"></i></div>
-                        <h4><a href="">Sed ut perspici</a></h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                    </div>
-                    </div>
-        
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-tachometer"></i></div>
-                        <h4><a href="">Magni Dolores</a></h4>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                    </div>
-                    </div>
-        
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-layer"></i></div>
-                        <h4><a href="">Nemo Enim</a></h4>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                    </div>
-                    </div>
-        
-                </div>
-            </div>
-        </section>
 
-         <!-- ======= Cliens Section ======= -->
-        <section id="clients" class="clients section-bg">
-            <div class="container">
-                <div class="title">
-                    Наши клиенты
-                    </div>
-                <div class="row" data-aos="zoom-in">
-        
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="img/client-4.png" class="img-fluid" alt="">
-                    </div>
-        
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="img/client-4.png" class="img-fluid" alt="">
-                    </div>
-        
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="img/client-4.png" class="img-fluid" alt="">
-                    </div>
-        
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="img/client-4.png" class="img-fluid" alt="">
-                    </div>
-        
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="img/client-4.png" class="img-fluid" alt="">
-                    </div>
-        
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                    <img src="img/client-4.png" class="img-fluid" alt="">
-                    </div>
-        
-                </div>
-    
-            </div>
-        </section><!-- End Cliens Section -->
-      
-    </main>
-    <footer id="footer">
+				<div class="row">
+					<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+						<div class="icon-box">
+							<i class="fas fa-check-square"></i>
+							<span>Качество</span>
+							<p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+						</div>
+					</div>
 
-        <div class="footer-newsletter">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-6">
-                <h4>Обратная связь</h4>
-                <p>Оставьте для нас Вашу почту и мы обязательно с вами свяжемся!</p>
-                <form action="" method="post">
-                  <input type="email" name="email" placeholder="Введите Вашу почту"><input type="submit" value="Отправить заявку">
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <div class="footer-top">
-          <div class="container">
-            <div class="row">
-    
-              <div class="col-lg-3 col-md-6 footer-contact">
-                <h3>Arsha</h3>
-                <p>
-                  A108 Adam Street <br>
-                  New York, NY 535022<br>
-                  United States <br><br>
-                  <strong>Phone:</strong> +1 5589 55488 55<br>
-                  <strong>Email:</strong> info@example.com<br>
-                </p>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 footer-links">
-                <h4>Useful Links</h4>
-                <ul>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                </ul>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 footer-links">
-                <h4>Our Services</h4>
-                <ul>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                </ul>
-              </div>
-    
-              
-    
-            </div>
-          </div>
-        </div>
-    
-        <div class="container footer-bottom clearfix">
-          <div class="copyright">
-            &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
-          </div>
-          <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>
-        </div>
-      </footer><!-- End Footer -->
-    
-    
+					<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+						<div class="icon-box">
+							<i class="fas fa-business-time"></i>
+							<span>Скорость</span>
+							<p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+						</div>
+					</div>
+
+
+					<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+						<div class="icon-box">
+							<i class="fas fa-brain"></i>
+							<span>Простота</span>
+							<p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+						</div>
+					</div>
+
+
+					<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+						<div class="icon-box">
+							<i class="fas fa-box-open"></i>
+							<span>Удобство</span>
+							<p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</section>
+
+		<!-- ======= Cliens Section ======= -->
+		<section id="clients" class="clients section-bg">
+			<div class="container">
+				<div class="title">
+					Наши клиенты
+				</div>
+				<div class="row" data-aos="zoom-in">
+
+					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+						<img src="img/client-4.png" class="img-fluid" alt="">
+					</div>
+
+					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+						<img src="img/client-4.png" class="img-fluid" alt="">
+					</div>
+
+					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+						<img src="img/client-4.png" class="img-fluid" alt="">
+					</div>
+
+					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+						<img src="img/client-4.png" class="img-fluid" alt="">
+					</div>
+
+					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+						<img src="img/client-4.png" class="img-fluid" alt="">
+					</div>
+
+					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+						<img src="img/client-4.png" class="img-fluid" alt="">
+					</div>
+
+				</div>
+
+			</div>
+		</section><!-- End Cliens Section -->
+
+	</main>
+	<footer id="footer">
+
+		<div class="footer-newsletter">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-6">
+						<div class="title">Обратная связь</div>
+						<p>Оставьте для нас Вашу почту и мы обязательно с вами свяжемся!</p>
+						<form action="" method="post">
+							<input type="email" name="email" placeholder="Введите Вашу почту"><input type="submit"
+								value="Отправить заявку">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-4 col-md-6 footer-contact">
+						<span>Asteri</span>
+						<p>
+							ул. Кирова 38 <br>
+							г. Челябинск<br><br>
+							<strong>Телефон:</strong><a href="tel:+8 800 555 35 35"> +8 (800) 555-35-35</a><br>
+							<strong>Email:</strong><a href="mailto:asteri-el@example.com"> info@example.com</a><br>
+						</p>
+					</div>
+
+					<div class="col-lg-4 col-md-6 footer-links">
+						<h4>Меню</h4>
+						<ul>
+							<li><i class="fas fa-chevron-right"></i><a href="#">О компании</a></li>
+							<li><i class="fas fa-chevron-right"></i><a href="#">Электронные компоненты</a></li>
+							<li><i class="fas fa-chevron-right"></i><a href="#">Печатные платы</a></li>
+							<li><i class="fas fa-chevron-right"></i><a href="#">Проектирование</a></li>
+							<li><i class="fas fa-chevron-right"></i><a href="#">Контркатное производство</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-4 col-md-6 footer-links">
+						<h4>Социальные сети?</h4>
+						<ul>
+							<li><i class="fas fa-chevron-right"></i><a href="#">Вконтакте</a></li>
+							<li><i class="fas fa-chevron-right"></i><a href="#">Instagramm</a></li>
+							<li><i class="fas fa-chevron-right"></i><a href="#">Youtube</a></li>
+						</ul>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+
+	</footer><!-- End Footer -->
+
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
 	crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/main.js"></script>
+
 </html>
