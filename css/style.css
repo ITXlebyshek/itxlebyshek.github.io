@@ -110,11 +110,21 @@ section {
   color: #37517e;
   line-height: 36px;
 }
+.title::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 80px;
+  margin-top: 20px;
+  margin: 20px auto 0;
+  background: #dcdcdc;
+}
 
 #intro .intro-slider img, #category .item img {
-  max-width: 100%;
+  width: 100%;
   min-height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 #category .item, #category .item img, #single-category .container .change-category ul li i {
@@ -380,12 +390,13 @@ header .navbar-nav .active {
 
 #category .item {
   position: relative;
-  box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-  padding: 0;
+  max-width: 639px;
   height: 300px;
+  padding: 0;
   overflow: hidden;
-  margin: 10px 0;
+  margin: 10px auto;
   border-radius: 7px;
+  box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
 }
 #category .item:hover {
   transform: translate(0, -10px);
@@ -395,7 +406,11 @@ header .navbar-nav .active {
   color: #fff;
   top: 50%;
   left: 50%;
+  text-shadow: 1px 1px 2px #444;
   transform: translate(-50%, -50%);
+}
+#category .item .title::after {
+  display: none;
 }
 
 #clients {
