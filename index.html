@@ -255,21 +255,27 @@
 	</main>
 	<footer id="footer">
 
-		<div class="footer-newsletter">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-6">
-						<div class="title">Обратная связь</div>
-						<p>Оставьте для нас Вашу почту и мы обязательно с вами свяжемся!</p>
-						<form action="" method="post">
-							<input type="email" name="email" placeholder="Введите Вашу почту"><input type="submit"
-								value="Отправить заявку">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
+    <div class="footer-newsletter contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="title">Обратная связь</div>
+                    <p>Оставьте для нас Вашу почту и мы обязательно с вами свяжемся!</p>
+                    <form action="<?= admin_url('admin-ajax.php?action=send_mail', 'https'); ?>" method="post" name="contactForm" class="php-email-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Ваш Email"
+                                   data-rule="email" data-msg="Введите корректный Email"/>
+                            <div class="validate"></div>
+                        </div>
+                        <input type="submit" value="Отправить заявку">
+                        <div id="msgLd" class="loading">Загрузка...</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Успешно!</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
