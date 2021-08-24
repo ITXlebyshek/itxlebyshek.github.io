@@ -22,7 +22,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ITXlebyshek.github.io" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -35,10 +35,17 @@
       <option name="presentableId" value="Default" />
       <updated>1628887110762</updated>
       <workItem from="1628887111863" duration="523000" />
+      <workItem from="1629139945839" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1031" y="265" key="FileChooserDialogImpl" timestamp="1629139954734">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1031" y="265" key="FileChooserDialogImpl/0.0.2560.1040@0.0.2560.1040" timestamp="1629139954734" />
   </component>
 </project>
