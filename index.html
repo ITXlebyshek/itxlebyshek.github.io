@@ -10,7 +10,7 @@
 		integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 	<link rel="stylesheet" href="fonts/fontawesome-free-5.15.3-web/css/all.min.css">
 	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="css/style.css">
 	<title>Document</title>
 </head>
@@ -91,8 +91,7 @@
 	<main>
 		<section id='intro'>
 			<div class="container">
-				<div class="swiper-container intro-slider" data-aos="zoom-in" data-aos-duration="250"
-					data-aos-delay="400">
+				<div class="swiper intro-slider" data-aos="zoom-in" data-aos-duration="250" data-aos-delay="400">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide"><img src="img/el-component-sl.jpg" alt="">
 							<div class="slider-desc">
@@ -255,27 +254,28 @@
 	</main>
 	<footer id="footer">
 
-    <div class="footer-newsletter contact">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="title">Обратная связь</div>
-                    <p>Оставьте для нас Вашу почту и мы обязательно с вами свяжемся!</p>
-                    <form action="<?= admin_url('admin-ajax.php?action=send_mail', 'https'); ?>" method="post" name="contactForm" class="php-email-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="email" id="email" placeholder="Ваш Email"
-                                   data-rule="email" data-msg="Введите корректный Email"/>
-                            <div class="validate"></div>
-                        </div>
-                        <input type="submit" value="Отправить заявку">
-                        <div id="msgLd" class="loading">Загрузка...</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Успешно!</div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="footer-newsletter contact">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-6">
+						<div class="title">Обратная связь</div>
+						<p>Оставьте для нас Вашу почту и мы обязательно с вами свяжемся!</p>
+						<form action="<?= admin_url('admin-ajax.php?action=send_mail', 'https'); ?>" method="post"
+							name="contactForm" class="php-email-form">
+							<div class="form-group">
+								<input type="text" class="form-control" name="email" id="email" placeholder="Ваш Email"
+									data-rule="email" data-msg="Введите корректный Email" />
+								<div class="validate"></div>
+							</div>
+							<input type="submit" value="Отправить заявку">
+							<div id="msgLd" class="loading">Загрузка...</div>
+							<div class="error-message"></div>
+							<div class="sent-message">Успешно!</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
