@@ -2,10 +2,17 @@ AOS.init({
 	once: true,
 });
 
-var swiper = new Swiper(".intro-slider", {
+var swiper_intro = new Swiper(".intro-slider", {
 	navigation: {
 		nextEl: "#intro .swiper-button-next",
 		prevEl: "#intro .swiper-button-prev",
+	},
+});
+
+var swiper_desc = new Swiper(".slider-in-desc", {
+	navigation: {
+		nextEl: ".slider-in-desc .swiper-button-next",
+		prevEl: ".slider-in-desc .swiper-button-prev",
 	},
 });
 
