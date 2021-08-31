@@ -536,7 +536,8 @@ header .navbar-nav .active {
 #footer .footer-top .footer-contact a {
   color: #444;
 }
-#footer .footer-top h4 {
+#footer .footer-top span {
+  display: inline-block;
   font-size: 16px;
   font-weight: bold;
   color: #37517e;
