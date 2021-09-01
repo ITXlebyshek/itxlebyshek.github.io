@@ -131,6 +131,10 @@ section {
   transition: all 0.4s;
 }
 
+body.admin-bar header {
+  top: 32px;
+}
+
 header {
   width: 100%;
   background: #fff;
@@ -332,12 +336,12 @@ header .navbar-nav .active {
 #intro .intro-slider .swiper-button-prev::after {
   margin-right: -20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   #intro .intro-slider {
     height: 300px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #intro .intro-slider {
     height: 200px;
   }
@@ -361,11 +365,13 @@ header .navbar-nav .active {
   font-weight: bold;
   font-size: 48px;
   margin-bottom: 15px;
+  text-shadow: #000 1px 0 3px;
 }
 #intro .intro-slider .slider-desc p {
   font-size: 20px;
+  text-shadow: #000 1px 0 3px;
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #intro .intro-slider .slider-desc {
     height: 200px;
   }
@@ -751,9 +757,9 @@ header .navbar-nav .active {
 .contact .php-email-form .validate {
   display: none;
   color: red;
-  margin: 0 0 15px 0;
+  margin: 15px;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 16px;
 }
 .contact .php-email-form .error-message {
   display: none;
@@ -884,12 +890,19 @@ img.aligncenter {
   height: 100%;
   padding: 70px;
 }
+.slider-in-desc .swiper-slide .content h1 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  text-shadow: #000 1px 0 3px;
+}
 .slider-in-desc .swiper-slide .content span {
   text-align: center;
   color: #fff;
   font-size: 18px;
   line-height: 1.5rem;
-  text-shadow: 1px 1px 1px rgba(61, 61, 61, 0.747);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
 .slider-in-desc .swiper-slide .content a {
   background-color: #fff;
@@ -898,12 +911,11 @@ img.aligncenter {
   margin-top: 30px;
   color: #444;
   font-weight: bold;
-  box-shadow: 2px 2px 6px rgba(68, 68, 68, 0.719);
+  box-shadow: 2px 2px 4px rgba(68, 68, 68, 0.85);
   transition: all 0.3s ease-in-out;
 }
 .slider-in-desc .swiper-slide .content a:hover {
   transform: translateY(2px);
-  box-shadow: 2px 2px 6px rgba(68, 68, 68, 0.842);
 }
 .slider-in-desc .swiper-slide img {
   width: 100%;
