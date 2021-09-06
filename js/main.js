@@ -2,6 +2,7 @@ AOS.init({
 	once: true,
 });
 
+
 var swiper_intro = new Swiper(".intro-slider", {
 	navigation: {
 		nextEl: "#intro .swiper-button-next",
@@ -21,3 +22,4 @@ $(document).ready(function () {
 		$(this).toggleClass('open');
 	});
 });
+

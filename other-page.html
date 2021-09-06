@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="fonts/fontawesome-free-5.15.3-web/css/all.min.css">
 	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" crossorigin="anonymous" />
+	<link rel="stylesheet" href="css/lightgallery.min.css">
+
 	<link rel="stylesheet" href="css/style.css">
 	<title>Document</title>
 </head>
@@ -112,11 +114,18 @@
 							<li><a href=""><span>Очень длинная предлинная категория товара</span><i
 										class="fas fa-chevron-right"></i></a></li>
 						</ul>
-						<!-- <div class="images">
-							<img src="img/contract manufacturing.jpg" alt="">
-							<img src="img/el-component.jpg" alt="">
-							<img src="img/pcb.jpg" alt="">
-						</div> -->
+						<div id="lightgallery" class="images">
+							<a href="img/pcb.jpg">
+								<img src="img/pcb.jpg" alt="" width="300px" height="300px">
+							</a>
+							<a href="img/el-component.jpg">
+								<img src="img/el-component.jpg" alt="" width="300px" height="300px">
+							</a>
+							<a href="img/contract manufacturing.jpg">
+								<img src="img/contract manufacturing.jpg" alt="" width="300px" height="300px">
+							</a>
+						</div>
+
 					</div>
 
 					<div class="desc col-lg-9">
@@ -130,10 +139,9 @@
 
 								<div class="swiper-slide">
 									<picture>
-										<source srcset="img/el-component-sl.jpg" width="670" height="206"
+										<source srcset="img/pcb.jpg" width="670" height="400"
 											media="(max-width: 1200px)">
-										<img src="img/el-component-sl.jpg" alt="" title="" width="940" height="289"
-											loading="lazy">
+										<img src="img/pcb.jpg" alt="" title="" width="940" height="400" loading="lazy">
 									</picture>
 
 									<!-- <img src="img/el-component-sl.jpg" alt=""> -->
@@ -148,10 +156,9 @@
 								</div>
 								<div class="swiper-slide">
 									<picture>
-										<source srcset="img/el-component-sl.jpg" width="670" height="206"
+										<source srcset="img/pcb.jpg" width="670" height="400"
 											media="(max-width: 1200px)">
-										<img src="img/el-component-sl.jpg" alt="" title="" width="940" height="289"
-											loading="lazy">
+										<img src="img/pcb.jpg" alt="" title="" width="940" height="400" loading="lazy">
 									</picture>
 									<div class="content">
 										<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque voluptatum
@@ -334,6 +341,21 @@
 	crossorigin="anonymous"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="js/bootstrap.js"></script>
+
+
+<script src="js/lightgallery.min.js"></script>
+<script src="js/lg-thumbnail.min.js"></script>
+<script src="js/lg-fullscreen.min.js"></script>
+<script src="js/lg-zoom.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$("#lightgallery").lightGallery();
+	})
+</script>
+
 <script src="js/main.js"></script>
+
+
+
 
 </html>
