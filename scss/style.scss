@@ -397,9 +397,15 @@ header {
 	color: #444;
 	background-color: #f3f5fa;
 	.desc {
+		line-height: 2rem;
 		font-size: 16px;
-		text-align: center;
 		margin-bottom: 30px;
+		ul {
+			margin-top: 25px;
+			li {
+				list-style: initial;
+			}
+		}
 	}
 }
 

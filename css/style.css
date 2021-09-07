@@ -388,9 +388,15 @@ header .navbar-nav .active {
   background-color: #f3f5fa;
 }
 #about .desc {
+  line-height: 2rem;
   font-size: 16px;
-  text-align: center;
   margin-bottom: 30px;
+}
+#about .desc ul {
+  margin-top: 25px;
+}
+#about .desc ul li {
+  list-style: initial;
 }
 
 #category .item {
