@@ -141,12 +141,12 @@ header {
 		span {
 			font-size: 28px;
 			margin: 0 15px 0 0;
-			padding: 6px 0 2px 0;
+			padding: 1px 0 2px 0;
 			line-height: 1;
 			text-transform: uppercase;
 			font-weight: 600;
 			color: $main-color;
-			@media (max-width: 768px) {
+			@media (max-width: 1000px) {
 				font-size: 22px;
 			}
 		}
@@ -624,6 +624,9 @@ header {
 			ul a:hover {
 				text-decoration: none;
 				color: $main-light;
+			}
+			span {
+				margin-top: 5px;
 			}
 		}
 

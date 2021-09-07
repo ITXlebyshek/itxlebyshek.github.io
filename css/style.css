@@ -150,13 +150,13 @@ header .logo-desctop {
 header .logo-desctop span {
   font-size: 28px;
   margin: 0 15px 0 0;
-  padding: 6px 0 2px 0;
+  padding: 1px 0 2px 0;
   line-height: 1;
   text-transform: uppercase;
   font-weight: 600;
   color: #37517e;
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   header .logo-desctop span {
     font-size: 22px;
   }
@@ -586,6 +586,9 @@ header .navbar-nav .active {
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
   color: #537abd;
+}
+#footer .footer-top .footer-links span {
+  margin-top: 5px;
 }
 #footer .footer-top .social-links a {
   font-size: 18px;
