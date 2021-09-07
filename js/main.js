@@ -21,16 +21,17 @@ $(document).ready(function () {
 	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
 		$(this).toggleClass('open');
 	});
-	
+
+
 	$("#lightgallery").lightGallery();
-	
-	$( document.body ).click(function() {
+
+	$(document.body).click(function () {
 		$(".lg-image").each(function () {
 			if ($(this).css("opacity") === "1") { $('.admin').show(); }
-			else{
+			else {
 				$('.admin').hide();
 			}
-			
+
 		})
 	});
 });

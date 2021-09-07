@@ -156,6 +156,11 @@ header .logo-desctop span {
   font-weight: 600;
   color: #37517e;
 }
+@media (max-width: 768px) {
+  header .logo-desctop span {
+    font-size: 22px;
+  }
+}
 header .logo-desctop .desc {
   display: flex;
   align-items: center;
@@ -165,6 +170,11 @@ header .logo-desctop .desc {
 @media (max-width: 768px) {
   header .logo-desctop .desc {
     display: none;
+  }
+}
+@media (max-width: 768px) {
+  header .logo-desctop {
+    width: 200px;
   }
 }
 header #desktop-topbar {

@@ -146,6 +146,9 @@ header {
 			text-transform: uppercase;
 			font-weight: 600;
 			color: $main-color;
+			@media (max-width: 768px) {
+				font-size: 22px;
+			}
 		}
 		.desc {
 			display: flex;
@@ -155,6 +158,9 @@ header {
 			@media (max-width: 768px) {
 				display: none;
 			}
+		}
+		@media (max-width: 768px) {
+			width: 200px;
 		}
 	}
 
