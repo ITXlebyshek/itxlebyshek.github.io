@@ -1,348 +1,433 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" >
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-	<link rel="stylesheet" href="fonts/fontawesome-free-5.15.3-web/css/all.min.css">
-	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="css/style.css">
-	<title>Document</title>
+	<title>Stal</title>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" crossorigin="anonymous" />
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
 </head>
+
+
 
 <body>
 
+	<!-- Шапка -->
 
+	<header id="header" class="header">
+		<div class="container">
+			<div class="header__wrapper">
+				<a href="#" class="header__logo">
+					ЛОГО СТАЛЬ
+				</a>
 
-	<header class="desktop-nav">
-		<div id="desktop-topbar">
-			<div class="container">
-				<div class="topbar">
-
-					<div class="logo-desctop">
-						<span>ИД МОНТАЖ СЕРВИС</span>
-						<!-- <a href=""><img src="img/logo.png" alt=""></a> -->
-						<div class="desc">Наша компания занимается такими вещами</div>
+				<nav class="header__nav">
+					
+					
+					<div class="header__nav-menu">	
+						<a href="" class="active">Главная</a>
+						<a href="">Каталог</a>
+						<a href="">Отзывы</a>
+						<a href="">Контакты</a>
+						<div class="header__nav-close"></div>
 					</div>
+					
+					
+				</nav>
 
-
-
-					<div class="contact-nav">
-						<a href="tel:+8 800 555 35 35"><i class="fa fa-phone"></i> <span>8(951)3594433</span></a>
-						<a href="mailto:asteri-el@example.com"><i class="fa fa-envelope"></i> <span>Написать
-								нам!</span></a>
+				<div class="header__btn-mob">
+					<div class="hamburger-lines">
+						<span class="line line1"></span>
+						<span class="line line2"></span>
+						<span class="line line3"></span>
 					</div>
-
-					<div class="navbar-expand-lg">
-						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-							aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-							<!-- <i class="fa fa-bars"></i> -->
-							<div id="nav-icon3">
-								<span></span>
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-
-						</button>
-					</div>
-
 				</div>
 
-
+				
 			</div>
 		</div>
-		<nav class="navbar navbar-light navbar-expand-lg">
-			<div class="container">
-				<div class="collapse navbar-collapse" id="navbar">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="index.html">О компании</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="other-page.html">Электронные компоненты</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="other-page.html">Печатные платы</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="other-page.html">Проектирование</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="other-page.html">Контрактное производство</a>
-						</li>
-					</ul>
-				</div>
-
-
-			</div>
-		</nav>
-
 	</header>
+
+
 	<main>
-		<section id='intro'>
+
+	
+
+		<section id="category" class="category">
 			<div class="container">
-				<div class="swiper intro-slider" data-aos="zoom-in" data-aos-duration="250" data-aos-delay="400">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<picture>
-								<source srcset="img/big.png" width="519" height="220" media="(max-width: 768px)">
-								<source srcset="img/big.png" width="699" height="297" media="(max-width: 1000px)">
-								<source srcset="img/small.png" width="939" height="400" media="(max-width: 1200px)">
-								<source srcset="img/small.png" width="1120" height="476" media="(max-width: 1400px)">
-								<img src="img/big.png" alt="" title="" width="1300" height="553" loading="lazy">
+				<h2>Категории</h2>
+				<div class="category__grid">
+					<!-- Отдельная категория -->
+					<a href="#" class="category__item">
+						<div class="category__title">Lorem, ipsum dolor.</div>
+						<div class="category__desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima quidem quae eligendi voluptatem libero facilis.</div>
+						<div class="category__image">
+							<img src="/assets/img/ex-1.jpg" alt="">
+						</div>
+						<div class="category__btn">
+							Перейти
+						</div>
+					</a>
+					<!-- Отдельная категория -->
+					<a href="#" class="category__item">
+						<div class="category__title">Lorem, ipsum dolor.</div>
+						<div class="category__desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima quidem quae eligendi voluptatem libero facilis.</div>
+						<div class="category__image">
+							<img src="/assets/img/ex-2.jpg" alt="">
+						</div>
+						<div class="category__btn">
+							Перейти
+						</div>
+					</a>
+					<!-- Отдельная категория -->
+					<a href="#" class="category__item">
+						<div class="category__title">Lorem, ipsum dolor.</div>
+						<div class="category__desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima quidem quae eligendi voluptatem libero facilis.</div>
+						<div class="category__image">
+							<img src="/assets/img/ex-1.jpg" alt="">
+						</div>
+						<div class="category__btn">
+							Перейти
+						</div>
+					</a>
+					
+				</div>
+			</div>
+		</section>
+		
+		<section>
+			<div class="container">
 
-							</picture>
 
-							<div class="slider-desc">
 
-								<div class="content">
-									<h1>Электронные компоненты</h1>
-									<p>A necessitatibus, illo esse dolorum odit ad minus voluptate illum vero
-										repellendus.
-									</p>
+				<h2>Пример Блока по центру в столбик</h2>
+
+			
+				<!-- Базовый блок во всю ширину -->
+				<div class="blocks">
+					<div class="block border desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id rem molestias dolores, minus veniam voluptatum error architecto ut laboriosam ipsum nemo alias quod aperiam tenetur blanditiis rerum quia atque provident at officiis! Exercitationem officia culpa unde, suscipit illo eligendi minus!</div>
+					<div class="block"><p class="text-center mb-0">Lorem ipsum dolor, sit amet <span>consectetur adipisicing elit.</span>  Ducimus, quam.</p></div>
+				</div>
+				<!-- Пример 2 блоков в сетке -->
+				<div class="blocks two-col">
+					<div class="block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ipsam illo, excepturi nostrum doloremque voluptatum. Minus, natus accusamus nam itaque vel assumenda odio ad beatae quasi, unde sapiente eum repellat.</div>
+					<div class="block border">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, corrupti cum! Reiciendis vel velit quidem animi, nihil in, odit consectetur voluptatum cupiditate autem cumque fuga.</div>
+					<div class="block border desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, excepturi!</div>
+					<div class="block in-row">Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="" class="btn mini-btn "> Пример кнопки</a></div>
+				</div>
+
+				
+
+				<h2>Пример заголовка</h2>
+
+				<!-- Пример 3 блоков в сетке -->
+				<div class="blocks three-col">
+					<div class="block border">Lorem ipsum dolor sit  nostrum doloremque voluptatum. Minus, natus accusamus nam itaque vel assumenda odio ad beatae quasi, unde sapiente eum repellat.</div>
+					<div class="block border">
+						<h3>Stal</h3>
+						<a href="">Ссылка на что-то</a>
+					</div>
+					<div class="block border">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat fuga recusandae voluptatibus! Suscipit mollitia amet vitae inventore facilis explicabo in. Atque impedit debitis voluptatem. Officiis voluptatem officia recusandae, expedita, placeat tempora dolores quia amet tenetur unde praesentium perspiciatis vel dicta blanditiis culpa porro atque quis minus nisi facilis, repudiandae omnis ex quisquam dolorem! Iure quis voluptatem, odio placeat in assumenda veritatis numquam beatae corrupti et reprehenderit debitis eos itaque quisquam dolorum dolore sint ipsum repellendus id explicabo est dolor quas. Explicabo aliquam animi reprehenderit, vero hic magni eaque eligendi dolor illum corporis atque minima! In, dignissimos. Sapiente eaque non consectetur.</div>
+				</div>
+
+				<h1 class="text-center">Пример заголовка по центру</h1>
+
+				<!-- Пример блоков 3 колонки и нет сетки (блоки не подстраиваются под высоту максимально высокого блока) -->
+				<div class="blocks three-col none-grid">
+					<div class="block border">Lorem ipsum dolor sit  nostrum doloremque voluptatum. Minus, Lorem ipsum dolor sit  nostrum doloremque voluptatum natus accusamus nam itaque vel assumenda odio ad beatae quasi, unde sapiente eum repellat.</div>
+					<div class="block border">
+						<h4>Stal</h4>
+						<a href="">Ссылка на что-то</a>
+					</div>
+					<div class="block border">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat fuga recusandae voluptatibus! Suscipit mollitia amet vitae inventore facilis explicabo in. Atque impedit debitis voluptatem. Officiis voluptatem officia recusandae, expedita, placeat tempora dolores quia amet tenetur unde praesentium perspiciatis vel dicta blanditiis culpa porro atque quis minus nisi facilis, repudiandae omnis ex quisquam dolorem! Iure quis voluptatem, odio placeat in assumenda veritatis numquam beatae corrupti et reprehenderit debitis eos itaque quisquam dolorum dolore sint ipsum repellendus id explicabo est dolor quas. Explicabo aliquam animi reprehenderit, vero hic magni eaque eligendi dolor illum corporis atque minima! In, dignissimos. Sapiente eaque non consectetur.</div>
+				</div>
+
+				<!-- Товары -->
+				<h2>Товары</h2>
+				<div class="blocks four-col">
+
+					<div class="product">
+						<a href="">
+							<div class="product__content">
+								<div class="product__wrapper">
+									<img src="assets/img/csgo2.webp" alt="">
+									<div class="product__price">
+										1200 Р
+									</div>
 								</div>
-
+								<div class="product__title">
+									Vip Test
+								</div>
 							</div>
-						</div>
-						<div class="swiper-slide">
+						</a>
+					</div>
+					<div class="product">
+						<a href="">
+							<div class="product__content">
+								<div class="product__wrapper">
+									<div class="product__action">
+										Акция!
+									</div>
+									<img src="assets/img/csgo.webp" alt="">
+									<div class="product__price">
+										1200 Р
+									</div>
+								</div>
+								<div class="product__title">
+									Кредиты на сервере
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="product">
+						<a href="">
+							<div class="product__content">
+								<div class="product__wrapper">
+									<img src="assets/img/csgo2.webp" alt="">
+									<div class="product__price">
+										1200 Р
+									</div>
+								</div>
+								<div class="product__title">
+									Admin Test
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="product">
+						<a href="">
+							<div class="product__content">
+								<div class="product__wrapper">
+									<img src="assets/img/avatar.jpg" alt="">
+									<div class="product__price">
+										1200 Р
+									</div>
+								</div>
+								<div class="product__title">
+									Vip Super
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="product">
+						<a href="">
+							<div class="product__content">
+								<div class="product__wrapper">
+									<img src="assets/img/avatar.jpg" alt="">
+									<div class="product__price">
+										1200 Р
+									</div>
+								</div>
+								<div class="product__title">
+									Vip Super
+								</div>
+							</div>
+						</a>
+					</div>
 
+				</div>
+
+				<!-- Пагинация -->
+				<!-- ПАГИНАЦИЯ -->
+				<section id='pagination' class="pagination">
+					<div class="pagination__content">
+						
+						<div class="pagination__pages">
+
+							<a href="#" class="pagination__btn">
+								<div class="pagination__icon-prev"></div>
+							</a>
+
+							<ul class="pagination__list">
+								<li class="pagination__page active"><a href="#">1</a></li>
+								<li class="pagination__page"><a href="#">2</a></li>
+								<li class="pagination__page"><a href="#">3</a></li>
+								<li class="pagination__page"><a href="#">4</a></li>
+							</ul>
+
+							<a href="#" class="pagination__btn">
+								<div class="pagination__icon-next"></div>
+							</a>
 						</div>
 					</div>
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
+				</section>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+
+				<!-- Хлебные крошки -->
+				<div class="breadcrumbs">
+					<div class="breadcrumbs__list">
+						<div class="breadcrumbs__item"><a href="">Главная</a></div>
+						<div class="breadcrumbs__item"><a href="">Статистика</a></div>
+						<div class="breadcrumbs__item"><a href="">Test Server</a></div>
+					</div>
+				</div>
+				
+				<!-- Заголовки -->
+				<h1>Заголовок 1 уровня</h1>
+				<h2>Заголовок 2 уровня</h2>
+				<h3>Заголовок 3 уровня</h3>
+				<h4>Заголовок 4 уровня</h4>
+				
+				<!-- 2 абзаца для примера -->
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <span>Fugit consectetur, dolorem ea molestinam.</span> A Fugit consectetur, dolorem ea molestinam. Fugit consectetur, dolorem ea molestinam. Fugit consectetur, dolorem ea molestinam.ut est consequuntur officiis dolor repellat rem alias nisi fugit mollitia?</p>
+				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <a href="">Fugit consectetur</a>, d Officiis expedita labore libero debitis laboriosam quos, totam quisquam aut beatae autem, aliquam iure, nemo modi! Distinctio quibusdam eligendi tempore consequatur eveniet tempora. Unde atque inventore eius nesciunt deleniti! Nam, incidunt dolore possimus corporis cumque excepturi, totam fugiat adipisci maiores sunt repellat soluta quod distinctio? Magni, excepturi error. Delectus sapiente in odit itaque numquam, corporis quisquam accusamus cum voluptatibus quos dolorum perferendis officia ex quo. Recusandae reprehenderit et cumque harum cupiditate suscipit repellendus accusantium consectetur saepe modi? Similique animi minima perferendis repellendus sequi eligendi reiciendis, minus consectetur molestias voluptatem aspernatur officiis perspiciatis. Aperiam omnis, sunt beatae magni ducimus, reprehenderit dicta ex officia obcaecati nobis, aspernatur facilis quam harum nam. Aut est consequuntur officiis dolor repellat rem alias nisi fugit mollitia?</p>
+				<!-- Сделать по центру -->
+				<p class="text-center">Lorem ipsum dolor, sit amet <span>consectetur</span> adipisicing elit. Fugit consectetur, dolorem ea molestinam. A Fugit consectetur, dolorem ea molestinam. Fugit consectetur, dolorem ea molestinam. Fugit consectetur, dolorem ea molestinam.ut est consequuntur officiis dolor repellat rem alias nisi fugit mollitia?</p>
+				<!-- Прижать к правому краю и добавить отступ сверху 32 пикселя-->
+				<p class="text-right">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit consectetur, dolorem ea molestinam. A Fugit consectetur, dolorem ea molestinam. Fugit consectetur, dolorem ea molestinam. Fugit consectetur, dolorem ea molestinam.ut est consequuntur officiis dolor repellat rem alias nisi fugit mollitia?</p>
+				
+				<!-- Текст с кастомными класами -->
+				<p class="desc text-right">Lorem ipsum dolor sit amet, consectetur adip</p>
+				<p class="sub text-right">Lorem ipsum dolop</p>
+				
+				<!-- Стандартный список -->
+				<h4>Список</h4>
+				<ul>
+					<li>test</li>
+					<li>test</li>
+					<li>test</li>
+					<li>test</li>
+					<li>test</li>
+				</ul>
+
+				<!-- Станадртная ссылка -->
+				<a href="#">Какая то ссылка</a>
+				<a href="#">Какая то ссылка2</a>
+				<a href="#">Какая то ссылка3</a>
+
+				<!-- Таблица -->
+				
+				<table class="table mt-32 mb-32">
+					<thead>
+					  <tr>
+						<th>Заголовок 1</th>
+						<th>Заголовок 2</th>
+						<th>Заголовок 3</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td>Ячейка 1,1</td>
+						<td>Ячейка 1,2</td>
+						<td><div class="btn mini-btn"> 800P</div></td>
+					  </tr>
+					  <tr>
+						<td>Ячейка 2,1</td>
+						<td>Ячейка 2,2</td>
+						<td><div class="btn mini-btn"> 800P</div></td>
+					  </tr>
+					</tbody>
+				</table>
+				
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<!-- Стандартная кнопка -->
+				<a href="" class="btn m-12"> Пример кнопки</a>
+				<!-- Кнопка прозрачная -->
+				<button href="" class="btn light m-12"> Пример кнопки</button>
+				<!-- Кнопка другого цвета -->
+				<a href="" class="btn success m-12"> Пример кнопки</a>
+				<!-- Кнопка другого цвета -->
+				<a href="" class="btn danger m-12"> Пример кнопки</a>
+				<!-- Кнопка другого цвета -->
+				<a href="" class="btn white m-12"> Пример кнопки</a>
+				<!-- Кнопка другого цвета -->
+				<a href="" class="btn light-white m-12"> Пример кнопки</a>
+				
+				<!-- Мини кнопка -->
+				<div>
+					<a href="" class="btn mini-btn m-12"> Пример кнопки</a>
+					<a href="" class="btn mini-btn m-12"> Пример кнопки</a>
+					<a href="" class="btn mini-btn m-12"> Пример кнопки</a>
 				</div>
 			</div>
 		</section>
 
-		<section id="about" data-aos="fade-up" data-aos-duration="400" data-aos-delay="550">
+		<section>
 			<div class="container">
-				<h2 class="title">О компании
-				</h2>
-				<div class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam commodi nulla, culpa
-					assumenda perspiciatis placeat non deserunt ab fugit odio vitae, ratione porro quasi ullam?
-					Laboriosam accusantium nihil soluta corrupti!
-					<ul>
-						<li>213</li>
-					</ul>
+				<div class=" default-field">
+					<input type="text" id="email-input" placeholder="">
+					<label for="email-input"><span>Email</span></label>
+					<div class="default-field__error">Неподвтержденный Email</div>
 				</div>
 			</div>
 		</section>
+	
 
-
-		<section id="category">
-			<div class="container">
-				<h2 class="title" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="850">
-					Разделы
-				</h2>
-				<div class="row">
-					<div class="col-lg-6" data-aos="fade-up" data-aos-duration="400" data-aos-delay="350">
-						<a href="">
-							<div class="item">
-								<img src="img/el-component.jpg" alt="">
-								<div class="title">Электронные компоненты</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-6" data-aos="fade-up" data-aos-duration="400" data-aos-delay="350">
-						<a href="">
-							<div class="item">
-								<picture>
-									<img srcset="img/pcb.jpg" loading="lazy" alt="">
-								</picture>
-								<div class="title">Печатные платы</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-6" data-aos="fade-up" data-aos-duration="400" data-aos-delay="350">
-						<a href="">
-							<div class="item">
-								<img src="img/engineering.jpg" alt="">
-								<div class="title">Проектирование</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-6" data-aos="fade-up" data-aos-duration="400" data-aos-delay="350">
-						<a href="">
-							<div class="item">
-								<img src="img/contract manufacturing.jpg" alt="">
-								<div class="title">Контрактное производство</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section id="benefits">
-			<div class="container">
-				<h2 class="title" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="350">
-					Наши преимущества
-				</h2>
-
-
-				<div class="row">
-					<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-						<div class="icon-box">
-							<i class="fas fa-check-square"></i>
-							<span>Качество</span>
-							<p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-						</div>
-					</div>
-
-					<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-						<div class="icon-box">
-							<i class="fas fa-business-time"></i>
-							<span>Скорость</span>
-							<p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-						</div>
-					</div>
-
-
-					<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-						<div class="icon-box">
-							<i class="fas fa-brain"></i>
-							<span>Простота</span>
-							<p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-						</div>
-					</div>
-
-
-					<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-						<div class="icon-box">
-							<i class="fas fa-box-open"></i>
-							<span>Удобство</span>
-							<p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-						</div>
-					</div>
-
-
-				</div>
-			</div>
-		</section>
-
-		<!-- ======= Cliens Section ======= -->
-		<section id="clients" class="clients section-bg">
-			<div class="container">
-				<h2 class="title">
-					Наши клиенты
-				</h2>
-				<div class="row" data-aos="zoom-in">
-
-					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-						<img src="img/client-4.png" class="img-fluid" alt="">
-					</div>
-
-					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-						<img src="img/client-4.png" class="img-fluid" alt="">
-					</div>
-
-					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-						<img src="img/client-4.png" class="img-fluid" alt="">
-					</div>
-
-					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-						<img src="img/client-4.png" class="img-fluid" alt="">
-					</div>
-
-					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-						<img src="img/client-4.png" class="img-fluid" alt="">
-					</div>
-
-					<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-						<img src="img/client-4.png" class="img-fluid" alt="">
-					</div>
-
-				</div>
-
-			</div>
-		</section><!-- End Cliens Section -->
 
 	</main>
-	<footer id="footer">
 
-		<div class="footer-newsletter contact">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-6">
-						<div class="title">Обратная связь</div>
-						<p>Оставьте для нас Вашу почту и мы обязательно с вами свяжемся!</p>
-						<form action="<?= admin_url('admin-ajax.php?action=send_mail', 'https'); ?>" method="post"
-							name="contactForm" class="php-email-form">
-							<div class="form-group">
-								<input type="text" class="form-control" name="email" id="email" placeholder="Ваш Email"
-									data-rule="email" data-msg="Введите корректный Email" />
-								<div class="validate"></div>
-							</div>
-							<input type="submit" value="Отправить заявку">
-							<div id="msgLd" class="loading">Загрузка...</div>
-							<div class="error-message"></div>
-							<div class="sent-message">Успешно!</div>
-						</form>
+	<!-- Футер -->
+
+	<footer id="footer" class="footer">
+		<div class="container">
+			<div class="footer__content">
+				<div class="footer__block">
+					<div class="footer__logo">
+						Stal
+					</div>
+					<div class="footer__label">
+						Цена. Качество. Скорость.
+					</div>
+				</div>
+				<div class="footer__block">
+					<div class="footer__title">
+						Меню
+					</div>
+					<ul>
+						<li><a href="">Главная</a></li>
+						<li><a href="">Услуги</a></li>
+						<li><a href="">Отзывы</a></li>
+						<li><a href="">Поддержка</a></li>
+						<li><a href="">Войти/Регистрация</a></li>
+						<li><a href="">Оферта</a></li>
+					</ul>
+				</div>
+				<div class="footer__block">
+					<div class="footer__title">
+						Контакты
+					</div>
+					<ul>
+						<li><a href="">test@gmail.com</a></li>
+						<li><a href="">support@gmail.com</a></li>
+					</ul>
+				</div>
+
+				<div class="footer__block media">
+					<div class="footer__title">
+						Медиа
+					</div>
+					<div class="footer__media-list">
+						<a href=""><i class="fa fa-vk"></i></a>
+						<a href=""><i class="fa fa-telegram"></i></a>
+						<a href=""><img src="assets/img/logo2017.png" alt=""></a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
 
-					<div class="col-lg-4 col-md-6 footer-contact">
-						<span>Asteri</span>
-						<p>
-							ул. Кирова 38 <br>
-							г. Челябинск<br><br>
-							<strong>Телефон:</strong><a href="tel:+8 800 555 35 35"> +8 (800) 555-35-35</a><br>
-							<strong>Email:</strong><a href="mailto:asteri-el@example.com"> info@example.com</a><br>
-						</p>
-					</div>
+	</footer>
 
-					<div class="col-lg-4 col-md-6 footer-links">
-						<span>Меню</span>
-						<ul>
-							<li><i class="fas fa-chevron-right"></i><a href="#">О компании</a></li>
-							<li><i class="fas fa-chevron-right"></i><a href="#">Электронные компоненты</a></li>
-							<li><i class="fas fa-chevron-right"></i><a href="#">Печатные платы</a></li>
-							<li><i class="fas fa-chevron-right"></i><a href="#">Проектирование</a></li>
-							<li><i class="fas fa-chevron-right"></i><a href="#">Контркатное производство</a></li>
-						</ul>
-					</div>
-
-					<div class="col-lg-4 col-md-6 footer-links">
-						<span>Социальные сети</span>
-						<ul>
-							<li><i class="fas fa-chevron-right"></i><a href="#">Вконтакте</a></li>
-							<li><i class="fas fa-chevron-right"></i><a href="#">Instagramm</a></li>
-							<li><i class="fas fa-chevron-right"></i><a href="#">Youtube</a></li>
-						</ul>
-					</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-				</div>
-			</div>
-		</div>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-
-	</footer><!-- End Footer -->
-
-
+	<script src="assets/js/sliders.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+		AOS.init();
+	</script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-	crossorigin="anonymous"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/main.js"></script>
-
+	
 </html>

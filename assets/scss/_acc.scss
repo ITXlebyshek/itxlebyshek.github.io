@@ -1,0 +1,44 @@
+.acc {
+	&-body {
+		max-height: 0px;
+		height: 100%;
+		transition: max-height 0.8s cubic-bezier(0, 1, 0, 1);
+		overflow: hidden;
+
+		// &::-webkit-scrollbar {
+		// 	width: 2px;
+		// }
+
+		// &::-webkit-scrollbar-track {
+		// 	background: --white;
+		// }
+
+		// &::-webkit-scrollbar-thumb {
+		// 	background-color: $description;
+		// }
+	}
+
+	&.show &-body {
+		max-height: 9999px;
+		transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
+		transition-delay: 0s;
+	}
+
+	&-btn {
+		display: flex;
+		align-items: center;
+		padding: 10px 0;
+		cursor: pointer;
+		img {
+			margin-left: auto;
+			transition: 0.3s ease-in-out;
+		}
+	}
+	& &-btn img {
+		transform: rotate(-180deg);
+	}
+
+	&.show &-btn img {
+		transform: rotate(0);
+	}
+}

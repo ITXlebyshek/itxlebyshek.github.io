@@ -1,0 +1,99 @@
+/*Обнуление*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,
+:active {
+    outline: none;
+}
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+button {
+    cursor: pointer;
+	outline: none;
+	border: none;
+}
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+ul li {
+    // list-style: none;
+}
+img {
+    max-width: 100%;
+    object-fit: cover;
+    line-height: 0;
+    display: block;
+}
+
+select,
+option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select{
+    @media (max-width:991px) {
+        background-color: transparent;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+.swiper {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    min-width: 0;
+}
+
+.swiper-slide {
+    height: auto !important;
+}
+.swiper-wrapper {
+    height: auto !important;
+    min-height: 100%;
+}

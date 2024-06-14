@@ -1,0 +1,131 @@
+
+.footer {
+	flex: 0 0 auto;
+	background-color: var(--background-color-v2);
+	padding: 48px;
+	transition: all 0.3s ease-in;
+	position: relative;
+	z-index: 100;
+	&__content {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		@media (max-width:991px) {
+			flex-direction: column;
+		}
+	}
+
+	&__block {
+		width: 100%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-direction: column;
+		@media (max-width:991px) {
+			margin-bottom: 24px;
+		}
+	}
+
+	&__logo {
+		color: var(--text-color);
+		font-family: var(--font-family);
+		font-size: 24px;
+		transition: all 0.3s ease-in;
+		img{
+			// width: 200px;
+			height: 70px;
+			object-fit: contain;
+		}
+	}
+
+	&__label {
+		font-family: var(--font-family);
+		font-size: 12px;
+		color: var(--text-desc);
+		margin-top: 16px;
+		transition: all 0.3s ease-in;
+	}
+
+	&__title{
+		font-family: var(--font-family);
+		font-size: 18px;
+		font-weight: 600;
+		margin-bottom: 12px;
+		color: var(--text-color);
+		transition: all 0.3s ease-in;
+	}
+
+	ul{
+		list-style: none;
+		margin-top: 18px;
+	}
+
+	li{
+		margin-left: 0;
+		padding-left: 0;
+		&:before{
+			display: none;
+		}
+	}
+
+	li a{
+		display: block;
+		font-family: var(--font-family);
+		font-size: 16px;
+		color: var(--text-color);
+		padding: 6px 0;
+		transition: all 0.3s ease-in;
+		
+		&:hover{
+			color: var(--link-active)
+		}
+	}
+
+
+	&__block.media{
+		i{
+			font-size: 32px;
+		}
+		img{
+			height: 32px;
+		}
+		a{
+			display: block;
+			color: var(--text-color);
+			padding: 6px 0;
+			transition: all 0.3s ease-in;
+			&:hover{
+				color: var(--link-active)
+			}
+		}
+	}
+
+	&__media-list{
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		font-family: var(--font-family);
+		font-size: 16px;
+		&-text{
+			flex-shrink:0 ;
+		}
+		a{
+			display: block;
+			height: 32px;
+		}
+		
+		svg{
+			width: 32px;
+			height: 32px;
+			path{
+				transition: 0.3s ease-in;
+			}
+			&:hover{
+				path{
+					fill: var(--link-active);
+				}
+			}
+			
+		}
+	}
+}
