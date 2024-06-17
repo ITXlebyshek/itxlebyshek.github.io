@@ -170,9 +170,9 @@
 			height: 32px;
 			&:hover{
 				color: var(--link-active);
-				path{
-					fill: var(--link-active);
-				}
+				// path{
+				// 	fill: var(--link-active);
+				// }
 			}
 		}
 		@media (max-width: 991px) {

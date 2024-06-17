@@ -2,7 +2,7 @@
 h1 {
 	font-size: 48px;
 	line-height: 130%;
-	font-weight: 500;
+	font-weight: 700;
 	font-family: var(--font-family);
 	color: var(--text-color);
 	margin-bottom: 36px;
@@ -11,7 +11,7 @@ h1 {
 h2 {
 	font-size: 32px;
 	line-height: 130%;
-	font-weight: 500;
+	font-weight: 700;
 	font-family: var(--font-family);
 	margin-bottom: 32px;
 	color: var(--text-color);
@@ -183,4 +183,9 @@ span {
 }
 .table tbody tr td:last-child {
 	border-radius: 0 8px 8px 0;
+}
+
+
+.title{
+	margin-bottom: 100px;
 }
