@@ -108,7 +108,10 @@ span {
 		position: relative;
 		vertical-align: middle;
 		padding-left: 12px;
-
+		font-size: 14px;
+		line-height: 180%;
+		font-weight: 500;
+		font-family: var(--font-family);
 		&:first-child {
 			padding-left: 0;
 		}
@@ -175,6 +178,7 @@ span {
 	font-size: 14px;
 	vertical-align: center;
 }
+
 .table tbody tr:nth-child(even) {
 	background: var(--background-color-v2);
 }

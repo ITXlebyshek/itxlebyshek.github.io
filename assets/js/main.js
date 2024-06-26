@@ -34,3 +34,10 @@ $(document).ready(function () {
 		})
 	});
 });
+
+
+$(document).find('.example-work__grid .example-work__item').each(function (number) {
+
+	let numberHTML = `<div class="example-work__number">${number + 1}</div>`
+	$(this).append(numberHTML)
+})

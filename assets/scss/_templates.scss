@@ -1,56 +1,170 @@
 
-/* Стандартные блоки и расположение */
+/* Стандартные блоки */
 
-.blocks{
-	display: grid;
-	grid-template-columns: repeat(1, 1fr);
-	gap: var(--base-gap);
-	margin-bottom: 48px;
-	&.two-col {
+// Категории
+
+
+.category {
+	padding: 12px 0;
+	&__grid {
+		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		@media (max-width:991px) {
-			grid-template-columns: repeat(1, 1fr);
-		}
-	}
-	&.three-col {
-		grid-template-columns: repeat(3, 1fr);
-		@media (max-width:991px) {
-			grid-template-columns: repeat(1, 1fr);
-		}
-	}
-	&.four-col {
-		grid-template-columns: repeat(4, 1fr);
-		@media (max-width:991px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-	&.center-col {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	&.none-grid{
-		display: flex;
-		align-items: flex-start;
-		&.three-col .block{
-			width: calc(33.3%);
-			@media (max-width:991px) {
-				width: 100%;
-			}
-		}
-		@media (max-width:991px) {
-			flex-direction: column;
-		}
-	}
-	@media (max-width:991px) {
+		gap: 36px;
+	@media (max-width:1200px) {
 		grid-template-columns: repeat(1, 1fr);
 	}
+	}
+
+	h2{
+		margin-bottom: 40px;
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		border-radius: 6px;
+		overflow: hidden;
+		padding: 32px 120px 32px 32px;
+		background-color: var(--background-block);
+		// -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.35);
+		// -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.35);
+		// box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.35);
+		&:hover{
+			.category__image img{
+				transform: scale(1.2);
+			}
+			.category__btn{
+				background-color: var(--white);
+				color: var(--text-color-v2);
+			}
+		}
+	}
+
+	&__title {
+		font-size: 28px;
+		line-height: 130%;
+		font-weight: 500;
+		font-family: var(--font-family);
+		margin-bottom: 18px;
+		color: var(--text-color);
+	}
+
+	&__desc {
+		max-width: 300px;
+		font-size: 16px;
+		line-height: 130%;
+		font-weight: 500;
+		font-family: var(--font-family);
+		color: var(--text-color);
+		margin-bottom: 48px;
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 250px;
+		height: 100%;
+		overflow: hidden;
+		@media (max-width:1200px) {
+			display: none;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all 0.2s ease-in;
+		}
+	}
+	&__btn{	
+		border-radius: 6px;
+		padding: 12px 16px;
+		font-size: 14px;
+		line-height: 130%;
+		font-weight: 500;
+		font-family: var(--font-family);
+		color: var(--text-color);
+		border: 1px solid var(--border-color);
+		transition: all 0.3s ease-in;
+	}	
 }
 
-.block{
-	padding: 32px;
+.example-work {
+
+&__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
+}
+
+
+
+&__item {
+	overflow: hidden;
 	border-radius: 16px;
 }
+}
+
+
+.example-work {
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
+	}
+
+
+
+	&__item {
+		overflow: hidden;
+		border-radius: 16px;
+		max-height: 400px;
+		position: relative;
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__number{
+		position: absolute;
+		bottom:0;
+		right: 0;
+		padding: 22px;
+		border-radius: 22px 0 0 0;
+		background-color: var(--white);
+		font-size: 24px;
+		line-height: 130%;
+		font-weight: 500;
+		font-family: var(--font-family-bold);
+		color: var(--text-color-v2);
+	}
+}
+.products {
+
+&__grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 32px;
+}
+
+
+
+&__item {
+	overflow: hidden;
+	border-radius: 16px;
+	img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all 0.2s ease-in;
+		}
+}
+}
+
 
 /* Преимущества */
 
@@ -309,9 +423,15 @@
 		margin-top: 28px;
 	}
 
-    &__left {
-		max-width: 25%;
+    &__left {    
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		max-width: 30%;
 		margin-bottom: 32px;
+		border-radius: 16px;
+		padding: 32px 48px;
+		background-color: var(--background-block);
 		@media (max-width:991px) {
 			max-width: 100%;
 		}
@@ -320,11 +440,14 @@
 			height: 32px;
 			margin-right: 8px;
 		}
+		h2{
+			margin-bottom: 16px;
+		}
 	}
 
     &__right {
 		width: 100%;
-		max-width: 75%;
+		max-width: 70%;
 		border-radius: 12px;
 		overflow: hidden;
 		@media (max-width:991px) {
