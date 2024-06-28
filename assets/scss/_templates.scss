@@ -13,6 +13,7 @@
 	@media (max-width:1200px) {
 		grid-template-columns: repeat(2, 1fr);
 	}
+	
 	}
 
 	h2{
@@ -112,6 +113,9 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 32px;
+		@media (max-width:991px) {
+			grid-template-columns: repeat(1, 1fr);
+		}
 	}
 
 
@@ -147,6 +151,9 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 32px;
+	@media (max-width:991px) {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 

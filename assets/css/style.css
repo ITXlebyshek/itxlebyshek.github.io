@@ -1286,6 +1286,11 @@ span {
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
+@media (max-width: 991px) {
+  .example-work__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .example-work__item {
   overflow: hidden;
   border-radius: 16px;
@@ -1314,6 +1319,11 @@ span {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
+}
+@media (max-width: 991px) {
+  .products__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .products__item {
   overflow: hidden;
