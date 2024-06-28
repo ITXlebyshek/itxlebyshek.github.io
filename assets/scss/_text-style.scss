@@ -192,4 +192,7 @@ span {
 
 .title{
 	margin-bottom: 100px;
+	@media (max-width:991px) {
+		margin-bottom: 40px;
+	}
 }

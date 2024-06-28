@@ -124,6 +124,9 @@ section {
 	overflow: hidden;
 	z-index: 1;
 	position: relative;
+	@media (max-width:991px) {
+		margin-bottom: 40px;
+	}
 }
 
 .d-none {
