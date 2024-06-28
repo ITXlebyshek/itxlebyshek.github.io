@@ -755,6 +755,44 @@ img {
 .header__media svg path {
   transition: 0.3s ease-in;
 }
+.header__media-mob {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-family);
+  font-size: 18px;
+  height: 42px;
+  display: none;
+}
+@media (max-width: 991px) {
+  .header__media-mob {
+    display: flex;
+  }
+}
+.header__media-mob-text {
+  flex-shrink: 0;
+  font-family: var(--font-family);
+  font-size: 18px;
+}
+.header__media-mob a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family);
+  font-size: 18px;
+  color: var(--text-color);
+  height: 32px;
+}
+.header__media-mob a:hover {
+  color: var(--link-active);
+}
+.header__media-mob svg {
+  width: 32px;
+  height: 32px;
+}
+.header__media-mob svg path {
+  transition: 0.3s ease-in;
+}
 
 .hamburger-lines {
   height: 26px;
