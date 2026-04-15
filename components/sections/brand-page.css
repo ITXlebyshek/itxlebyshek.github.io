@@ -159,8 +159,4 @@
         opacity: 1;
     }
 
-    /* Mobile padding for header */
-    main {
-        padding-top: 80px !important;
-    }
 }

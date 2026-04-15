@@ -15,6 +15,17 @@ body.preloader-active {
     overflow: hidden;
 }
 
+/* ── Main — offset for fixed header ── */
+main {
+    padding-top: 91px;
+}
+
+@media (max-width: 991px) {
+    main {
+        padding-top: 55px;
+    }
+}
+
 /* ── Container ── */
 .container {
     width: var(--container-width);

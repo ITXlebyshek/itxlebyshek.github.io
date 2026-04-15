@@ -29,9 +29,9 @@
         '<circle cx="10" cy="10" r="7" fill="#16120E"/>' +
         '</svg>';
 
-    var SUCCESS_ICON_SVG = '<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-        '<circle cx="30" cy="30" r="29" stroke="#E8D6AC" stroke-width="2"/>' +
-        '<path d="M18 30L26 38L42 22" stroke="#E8D6AC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+    var SUCCESS_ICON_SVG = '<svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+        '<path d="M27.0835 52.084C32.8674 52.084 38.4723 50.0785 42.9433 46.4092C47.4143 42.74 50.4747 37.634 51.6031 31.9612C52.7315 26.2885 51.858 20.4 49.1315 15.2991C46.405 10.1981 41.9942 6.20039 36.6506 3.987C31.307 1.7736 25.3612 1.4815 19.8264 3.16047C14.2916 4.83945 9.51011 8.3856 6.29676 13.1947C3.08341 18.0038 1.63696 23.7784 2.20388 29.5344C2.7708 35.2904 5.316 40.6718 9.40582 44.7616" stroke="#A98058" stroke-width="4.16667" stroke-linecap="round"/>' +
+        '<path d="M38.1929 21.5293L26.2513 35.8592C25.3408 36.9518 24.8855 37.4982 24.2736 37.5259C23.6617 37.5537 23.1588 37.0508 22.1531 36.0451L15.9706 29.8626" stroke="#A98058" stroke-width="4.16667" stroke-linecap="round"/>' +
         '</svg>';
 
     /* ═══════════════════════════════════════
@@ -183,6 +183,17 @@
             }
         });
 
+        // Fix paste background on all inputs
+        [nameInput, emailInput, phoneInput].forEach(function (inp) {
+            inp.addEventListener('paste', function () {
+                var el = this;
+                setTimeout(function () {
+                    el.style.backgroundColor = '#16120e';
+                    el.style.color = '#fff';
+                }, 0);
+            });
+        });
+
         wrapper.appendChild(nameInput);
         wrapper.appendChild(emailInput);
         wrapper.appendChild(phoneInput);
@@ -215,6 +226,54 @@
         label.appendChild(text);
 
         return label;
+    }
+
+    /* ═══════════════════════════════════════
+       Form Validation — Enable/Disable Submit
+       ═══════════════════════════════════════ */
+
+    function setupFormValidation(modalEl) {
+        var submitBtn = modalEl.querySelector('.modal__submit');
+        var inputs = modalEl.querySelectorAll('.modal__input');
+        var consentInput = modalEl.querySelector('input[name="consent"]');
+        if (!submitBtn) return;
+
+        // Start disabled
+        submitBtn.disabled = true;
+
+        function checkFormState() {
+            var allFilled = true;
+            inputs.forEach(function (inp) {
+                var val = inp.value.trim();
+                // For phone, check actual digits >= 11
+                if (inp.name === 'phone') {
+                    var digits = val.replace(/\D/g, '');
+                    if (digits.length < 11) allFilled = false;
+                } else {
+                    if (!val) allFilled = false;
+                }
+            });
+
+            var consentChecked = consentInput ? consentInput.checked : true;
+
+            submitBtn.disabled = !(allFilled && consentChecked);
+        }
+
+        // Listen on all inputs
+        inputs.forEach(function (inp) {
+            inp.addEventListener('input', checkFormState);
+            inp.addEventListener('paste', function () {
+                setTimeout(checkFormState, 10);
+            });
+            inp.addEventListener('change', checkFormState);
+        });
+
+        if (consentInput) {
+            consentInput.addEventListener('change', checkFormState);
+        }
+
+        // Initial check
+        checkFormState();
     }
 
     /* ═══════════════════════════════════════
@@ -312,7 +371,6 @@
         // Divider
         var div2 = document.createElement('div');
         div2.className = 'modal__divider';
-        div2.style.marginTop = '20px';
         modal.appendChild(div2);
 
         // Form fields
@@ -346,6 +404,9 @@
         });
         modal.appendChild(submitBtn);
 
+        // Enable/disable submit based on form state
+        setupFormValidation(modal);
+
         return modal;
     }
 
@@ -370,7 +431,6 @@
 
         var productInfo = document.createElement('div');
         productInfo.className = 'modal__product-info';
-        productInfo.style.marginBottom = '20px';
 
         var colorLabel = data.colorLabel || 'Оазис';
         productInfo.innerHTML = 'Панно «TRIO» ' + colorLabel + '<br>Индивидуальный размер';
@@ -404,6 +464,9 @@
             });
         });
         modal.appendChild(submitBtn);
+
+        // Enable/disable submit based on form state
+        setupFormValidation(modal);
 
         return modal;
     }
@@ -449,6 +512,9 @@
             });
         });
         modal.appendChild(submitBtn);
+
+        // Enable/disable submit based on form state
+        setupFormValidation(modal);
 
         return modal;
     }

@@ -6,7 +6,7 @@
 
 /* ── Page layout ── */
 .gallery-page {
-    padding-top: 135px;
+    /* padding-top handled by base.css main rule */
 }
 
 /* ── Title ── */
@@ -104,9 +104,6 @@
 
 /* ── Mobile responsive ── */
 @media (max-width: 991px) {
-    .gallery-page {
-        padding-top: 80px;
-    }
 
     .gallery-title {
         font-size: 28px;

@@ -266,9 +266,9 @@
     letter-spacing: 0.1em;
     color: #fff;
     background: #a98058;
-    border: 1px solid #a98058;
-    border-radius: 30px;
-    padding: 14px 36px;
+    border: 1.45px solid #f6b66b;
+    border-radius: 58px;
+    padding: 15px 34px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
     white-space: nowrap;
