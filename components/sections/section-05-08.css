@@ -1,0 +1,128 @@
+/* ── Sections 05–08: Color Variations ── */
+/* These four sections share the same layout pattern */
+
+.section-05,
+.section-06,
+.section-07,
+.section-08 {
+    /* All child elements start hidden */
+    & .title2,
+    & .label1,
+    & p,
+    & .block1,
+    & .block2,
+    & .block3,
+    & .block4 {
+        opacity: 0;
+    }
+
+    & .title2 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: var(--fs-3xl);
+        line-height: var(--lh-normal);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-white);
+        position: absolute;
+        top: 94px;
+        left: 109px;
+    }
+
+    & .label1 {
+        font-family: var(--font-primary);
+        font-weight: 400;
+        font-size: var(--fs-md);
+        line-height: var(--lh-normal);
+        letter-spacing: 0.1em;
+        color: var(--color-white);
+        top: 176px;
+        left: 109px;
+        position: absolute;
+    }
+
+    & p {
+        position: absolute;
+        left: 109px;
+        top: 727px;
+        font-family: var(--font-primary);
+        font-weight: 400;
+        font-size: var(--fs-md);
+        line-height: var(--lh-normal);
+        color: var(--color-white);
+        max-width: 630px;
+    }
+
+    & span {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: var(--space-md);
+    }
+
+    & span svg {
+        flex-shrink: 0;
+        margin-right: 20px;
+    }
+
+    & .block1 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 740px;
+    }
+
+    & .block2 {
+        position: absolute;
+        top: 255px;
+        left: 109px;
+        width: 299px;
+    }
+
+    & .block3 {
+        position: absolute;
+        top: 255px;
+        left: 438px;
+        width: 299px;
+    }
+
+    & .block4 {
+        position: absolute;
+        top: 255px;
+        left: 767px;
+        width: 299px;
+    }
+}
+
+/* Visible state — shared animations */
+.section-05.visible,
+.section-06.visible,
+.section-07.visible,
+.section-08.visible {
+    & .block1 {
+        animation: slideInBg 1.8s var(--ease-reveal) forwards;
+    }
+
+    & .title2 {
+        animation: revealBlock 1s var(--ease-reveal) 0.3s forwards;
+    }
+
+    & .label1 {
+        animation: revealBlock 1s var(--ease-reveal) 0.5s forwards;
+    }
+
+    & .block2 {
+        animation: revealBlock 1.2s var(--ease-reveal) 0.6s forwards;
+    }
+
+    & .block3 {
+        animation: revealBlock 1.2s var(--ease-reveal) 0.8s forwards;
+    }
+
+    & .block4 {
+        animation: revealBlock 1.2s var(--ease-reveal) 1.0s forwards;
+    }
+
+    & p {
+        animation: revealBlock 1.4s var(--ease-reveal) 1.2s forwards;
+    }
+}

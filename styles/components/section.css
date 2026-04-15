@@ -1,0 +1,59 @@
+/* ============================================
+   SECTION — Common Section Styles
+   ============================================ */
+
+/* ── Full-bleed section image ── */
+.section__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.section__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── New sections (9-19) common layout ── */
+.section-new {
+    height: auto;
+    overflow: visible;
+}
+
+.section-new .block-bg {
+    position: relative;
+    width: 100%;
+}
+
+.section-new .block-bg img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ── Feature list (shared for slides 5-8) ── */
+.feature-list {
+    position: absolute;
+    left: 109px;
+    top: 727px;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: var(--fs-md);
+    line-height: var(--lh-normal);
+    color: var(--color-white);
+    max-width: 630px;
+}
+
+.feature-list__item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--space-md);
+}
+
+.feature-list__item svg {
+    flex-shrink: 0;
+    margin-right: 20px;
+}

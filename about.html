@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Salbero — О бренде. История, философия и ценности компании Salbero Premium Wood Decor.">
+    <title>Salbero — О бренде</title>
+
+    <!-- CSS Layers: reset → variables → base → utilities → animations → components -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/components/section.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+
+    <!-- Brand page styles -->
+    <link rel="stylesheet" href="components/sections/brand-page.css">
+</head>
+
+<body>
+    <!-- ═══════════════════════════════════════
+         HEADER & MOBILE MENU
+         ═══════════════════════════════════════ -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo-wrap">
+                <img src="media/logo.svg" alt="Salbero Logo" class="header__logo-img">
+                <span class="header__logo-text">PREMIUM<br>WOOD DECOR</span>
+            </a>
+            <nav class="header__nav">
+                <a href="index.html#section-05" class="header__link" data-text="Коллекция Desert">Коллекция Desert</a>
+                <a href="gallery.html" class="header__link" data-text="Галерея">Галерея</a>
+                <a href="index.html#section-15" class="header__link" data-text="Заказать">Заказать</a>
+                <a href="about.html" class="header__link header__link--active" data-text="О бренде">О бренде</a>
+                <a href="index.html#section-24" class="header__link" data-text="Контакты">Контакты</a>
+            </nav>
+            <div class="header__actions">
+                <a href="index.html#section-15" class="header__action-text">Написать нам</a>
+                <div class="header__social-wrap">
+                    <a href="#" class="header__social" aria-label="VKontakte" target="_blank">
+                        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.4 0.000488281C6.447 0.000488281 0 6.44749 0 14.4005C0 22.3535 6.447 28.8005 14.4 28.8005C22.353 28.8005 28.8 22.3535 28.8 14.4005C28.8 6.44749 22.353 0.000488281 14.4 0.000488281ZM19.938 16.247C19.938 16.247 21.2115 17.504 21.525 18.0875C21.534 18.0995 21.5385 18.1115 21.5415 18.1175C21.669 18.332 21.699 18.4985 21.636 18.623C21.531 18.83 21.171 18.932 21.048 18.941H18.798C18.642 18.941 18.315 18.9005 17.919 18.6275C17.6145 18.4145 17.3145 18.065 17.022 17.7245C16.5855 17.2175 16.2075 16.7795 15.8265 16.7795C15.7781 16.7794 15.73 16.787 15.684 16.802C15.396 16.895 15.027 17.306 15.027 18.401C15.027 18.743 14.757 18.9395 14.5665 18.9395H13.536C13.185 18.9395 11.3565 18.8165 9.7365 17.108C7.7535 15.0155 5.9685 10.8185 5.9535 10.7795C5.841 10.508 6.0735 10.3625 6.327 10.3625H8.5995C8.9025 10.3625 9.0015 10.547 9.0705 10.7105C9.1515 10.901 9.4485 11.6585 9.936 12.5105C10.7265 13.8995 11.211 14.4635 11.5995 14.4635C11.6723 14.4626 11.7439 14.4441 11.808 14.4095C12.315 14.1275 12.2205 12.32 12.198 11.945C12.198 11.8745 12.1965 11.1365 11.937 10.7825C11.751 10.526 11.4345 10.4285 11.2425 10.3925C11.3202 10.2853 11.4226 10.1983 11.541 10.139C11.889 9.96499 12.516 9.93949 13.1385 9.93949H13.485C14.16 9.94849 14.334 9.99199 14.5785 10.0535C15.0735 10.172 15.084 10.4915 15.0405 11.585C15.027 11.8955 15.0135 12.2465 15.0135 12.6605C15.0135 12.7505 15.009 12.8465 15.009 12.9485C14.994 13.505 14.976 14.1365 15.369 14.396C15.4203 14.4281 15.4795 14.4453 15.54 14.4455C15.6765 14.4455 16.0875 14.4455 17.2005 12.536C17.5438 11.9214 17.842 11.2827 18.093 10.625C18.1155 10.586 18.1815 10.466 18.2595 10.4195C18.3171 10.3901 18.3809 10.3752 18.4455 10.376H21.117C21.408 10.376 21.6075 10.4195 21.645 10.532C21.711 10.7105 21.633 11.255 20.4135 12.9065L19.869 13.625C18.7635 15.074 18.7635 15.1475 19.938 16.247V16.247Z" fill="white" />
+                        </svg>
+                    </a>
+                    <a href="#" class="header__social" aria-label="Telegram" target="_blank">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 0C6.71625 0 0 6.71625 0 15C0 23.2837 6.71625 30 15 30C23.2837 30 30 23.2837 30 15C30 6.71625 23.2837 0 15 0ZM22.3675 10.2762L19.905 21.8762C19.7237 22.6987 19.2338 22.8988 18.55 22.5113L14.8 19.7487L12.9925 21.4913C12.8175 21.7163 12.5462 21.86 12.2425 21.86C12.24 21.86 12.2387 21.86 12.2362 21.86L12.5025 18.0425L19.4525 11.765C19.7525 11.4987 19.385 11.3475 18.9863 11.6138L10.4 17.0212L6.7 15.8662C5.9 15.6125 5.8775 15.0663 6.86875 14.6738L21.3263 9.10125C21.9988 8.85625 22.5837 9.26125 22.3662 10.2775L22.3675 10.2762Z" fill="white" />
+                        </svg>
+                    </a>
+                </div>
+                <button class="header__burger" aria-label="Открыть меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-menu__nav">
+            <a href="index.html#section-05" class="mobile-menu__link" data-text="Коллекция Desert">Коллекция Desert</a>
+            <a href="gallery.html" class="mobile-menu__link" data-text="Галерея">Галерея</a>
+            <a href="index.html#section-15" class="mobile-menu__link" data-text="Заказать">Заказать</a>
+            <a href="about.html" class="mobile-menu__link mobile-menu__link--active" data-text="О бренде">О бренде</a>
+            <a href="index.html#section-24" class="mobile-menu__link" data-text="Контакты">Контакты</a>
+        </nav>
+        <div class="mobile-menu__footer">
+            <div class="mobile-menu__socials">
+                <a href="#" class="mobile-menu__social" target="_blank">
+                    <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.4 0.000488281C6.447 0.000488281 0 6.44749 0 14.4005C0 22.3535 6.447 28.8005 14.4 28.8005C22.353 28.8005 28.8 22.3535 28.8 14.4005C28.8 6.44749 22.353 0.000488281 14.4 0.000488281ZM19.938 16.247C19.938 16.247 21.2115 17.504 21.525 18.0875C21.534 18.0995 21.5385 18.1115 21.5415 18.1175C21.669 18.332 21.699 18.4985 21.636 18.623C21.531 18.83 21.171 18.932 21.048 18.941H18.798C18.642 18.941 18.315 18.9005 17.919 18.6275C17.6145 18.4145 17.3145 18.065 17.022 17.7245C16.5855 17.2175 16.2075 16.7795 15.8265 16.7795C15.7781 16.7794 15.73 16.787 15.684 16.802C15.396 16.895 15.027 17.306 15.027 18.401C15.027 18.743 14.757 18.9395 14.5665 18.9395H13.536C13.185 18.9395 11.3565 18.8165 9.7365 17.108C7.7535 15.0155 5.9685 10.8185 5.9535 10.7795C5.841 10.508 6.0735 10.3625 6.327 10.3625H8.5995C8.9025 10.3625 9.0015 10.547 9.0705 10.7105C9.1515 10.901 9.4485 11.6585 9.936 12.5105C10.7265 13.8995 11.211 14.4635 11.5995 14.4635C11.6723 14.4626 11.7439 14.4441 11.808 14.4095C12.315 14.1275 12.2205 12.32 12.198 11.945C12.198 11.8745 12.1965 11.1365 11.937 10.7825C11.751 10.526 11.4345 10.4285 11.2425 10.3925C11.3202 10.2853 11.4226 10.1983 11.541 10.139C11.889 9.96499 12.516 9.93949 13.1385 9.93949H13.485C14.16 9.94849 14.334 9.99199 14.5785 10.0535C15.0735 10.172 15.084 10.4915 15.0405 11.585C15.027 11.8955 15.0135 12.2465 15.0135 12.6605C15.0135 12.7505 15.009 12.8465 15.009 12.9485C14.994 13.505 14.976 14.1365 15.369 14.396C15.4203 14.4281 15.4795 14.4453 15.54 14.4455C15.6765 14.4455 16.0875 14.4455 17.2005 12.536C17.5438 11.9214 17.842 11.2827 18.093 10.625C18.1155 10.586 18.1815 10.466 18.2595 10.4195C18.3171 10.3901 18.3809 10.3752 18.4455 10.376H21.117C21.408 10.376 21.6075 10.4195 21.645 10.532C21.711 10.7105 21.633 11.255 20.4135 12.9065L19.869 13.625C18.7635 15.074 18.7635 15.1475 19.938 16.247V16.247Z" fill="white" />
+                    </svg>
+                </a>
+                <a href="#" class="mobile-menu__social" target="_blank">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 0C6.71625 0 0 6.71625 0 15C0 23.2837 6.71625 30 15 30C23.2837 30 30 23.2837 30 15C30 6.71625 23.2837 0 15 0ZM22.3675 10.2762L19.905 21.8762C19.7237 22.6987 19.2338 22.8988 18.55 22.5113L14.8 19.7487L12.9925 21.4913C12.8175 21.7163 12.5462 21.86 12.2425 21.86C12.24 21.86 12.2387 21.86 12.2362 21.86L12.5025 18.0425L19.4525 11.765C19.7525 11.4987 19.385 11.3475 18.9863 11.6138L10.4 17.0212L6.7 15.8662C5.9 15.6125 5.8775 15.0663 6.86875 14.6738L21.3263 9.10125C21.9988 8.85625 22.5837 9.26125 22.3662 10.2775L22.3675 10.2762Z" fill="white" />
+                    </svg>
+                </a>
+            </div>
+            <div class="mobile-menu__logo">
+                <img src="media/logo.svg" alt="Salbero Logo">
+                <span>PREMIUM<br>WOOD DECOR</span>
+            </div>
+        </div>
+    </div>
+    
+    <main style="padding-top: 135px;">
+        <div class="container">
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 01
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s01 section-new" id="brand-section-01">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-01.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 02
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s02 section-new" id="brand-section-02">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-02.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 03
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s03 section-new" id="brand-section-03">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-03.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 04
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s04 section-new" id="brand-section-04">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-04.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 05
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s05 section-new" id="brand-section-05">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-05.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 06
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s06 section-new" id="brand-section-06">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-06.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 07
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s07 section-new" id="brand-section-07">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-07.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 08
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s08 section-new" id="brand-section-08">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-08.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 09
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s09 section-new" id="brand-section-09">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-09.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 10 — Video
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s10 brand-video-section" id="brand-section-10">
+                <div class="brand-video-wrap">
+                    <video class="brand-video" width="1702" height="803" autoplay muted loop playsinline>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+                 BRAND SECTION 11
+                 ═══════════════════════════════════════ -->
+            <section class="brand-s11 section-new" id="brand-section-11">
+                <div class="block-bg"><img src="media/brand_page/desktop/brand-d-11.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════
+             MOBILE SECTIONS — отображаются при ≤991px
+             ═══════════════════════════════════════ -->
+        <div class="mobile-sections">
+
+            <!-- MOB BRAND 01 -->
+            <section class="mob-brand mob-brand-01" id="mob-brand-01">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-01.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 02 -->
+            <section class="mob-brand mob-brand-02" id="mob-brand-02">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-02.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 03 -->
+            <section class="mob-brand mob-brand-03" id="mob-brand-03">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-03.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 04 -->
+            <section class="mob-brand mob-brand-04" id="mob-brand-04">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-04.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 05 -->
+            <section class="mob-brand mob-brand-05" id="mob-brand-05">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-05.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 06 -->
+            <section class="mob-brand mob-brand-06" id="mob-brand-06">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-06.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 07 -->
+            <section class="mob-brand mob-brand-07" id="mob-brand-07">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-07.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 08 -->
+            <section class="mob-brand mob-brand-08" id="mob-brand-08">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-08.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 09 -->
+            <section class="mob-brand mob-brand-09" id="mob-brand-09">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-09.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 10 -->
+            <section class="mob-brand mob-brand-10" id="mob-brand-10">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-10.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+            <!-- MOB BRAND 11 -->
+            <section class="mob-brand mob-brand-11" id="mob-brand-11">
+                <div class="mob-bg"><img src="media/brand_page/mobile/brand-m-11.webp" alt="Salbero — О бренде"></div>
+            </section>
+
+        </div><!-- /mobile-sections -->
+
+    </main>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════ -->
+    <footer class="footer">
+
+        <!-- DESKTOP: top row mirrors header -->
+        <div class="footer__top">
+            <a href="index.html" class="footer__logo-wrap">
+                <img src="media/logo.svg" alt="Salbero Logo" class="footer__logo-img">
+                <span class="footer__logo-text">PREMIUM<br>WOOD DECOR</span>
+            </a>
+            <nav class="footer__nav">
+                <a href="index.html#section-05" class="footer__link">Коллекция Desert</a>
+                <a href="gallery.html" class="footer__link">Галерея</a>
+                <a href="index.html#section-15" class="footer__link">Заказать</a>
+                <a href="about.html" class="footer__link">О бренде</a>
+                <a href="index.html#section-24" class="footer__link">Контакты</a>
+            </nav>
+            <div class="footer__actions">
+                <a href="index.html#section-15" class="footer__action-text">Написать нам</a>
+                <div class="footer__social-wrap">
+                    <a href="#" class="footer__social" aria-label="VKontakte" target="_blank">
+                        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.4 0.000488281C6.447 0.000488281 0 6.44749 0 14.4005C0 22.3535 6.447 28.8005 14.4 28.8005C22.353 28.8005 28.8 22.3535 28.8 14.4005C28.8 6.44749 22.353 0.000488281 14.4 0.000488281ZM19.938 16.247C19.938 16.247 21.2115 17.504 21.525 18.0875C21.534 18.0995 21.5385 18.1115 21.5415 18.1175C21.669 18.332 21.699 18.4985 21.636 18.623C21.531 18.83 21.171 18.932 21.048 18.941H18.798C18.642 18.941 18.315 18.9005 17.919 18.6275C17.6145 18.4145 17.3145 18.065 17.022 17.7245C16.5855 17.2175 16.2075 16.7795 15.8265 16.7795C15.7781 16.7794 15.73 16.787 15.684 16.802C15.396 16.895 15.027 17.306 15.027 18.401C15.027 18.743 14.757 18.9395 14.5665 18.9395H13.536C13.185 18.9395 11.3565 18.8165 9.7365 17.108C7.7535 15.0155 5.9685 10.8185 5.9535 10.7795C5.841 10.508 6.0735 10.3625 6.327 10.3625H8.5995C8.9025 10.3625 9.0015 10.547 9.0705 10.7105C9.1515 10.901 9.4485 11.6585 9.936 12.5105C10.7265 13.8995 11.211 14.4635 11.5995 14.4635C11.6723 14.4626 11.7439 14.4441 11.808 14.4095C12.315 14.1275 12.2205 12.32 12.198 11.945C12.198 11.8745 12.1965 11.1365 11.937 10.7825C11.751 10.526 11.4345 10.4285 11.2425 10.3925C11.3202 10.2853 11.4226 10.1983 11.541 10.139C11.889 9.96499 12.516 9.93949 13.1385 9.93949H13.485C14.16 9.94849 14.334 9.99199 14.5785 10.0535C15.0735 10.172 15.084 10.4915 15.0405 11.585C15.027 11.8955 15.0135 12.2465 15.0135 12.6605C15.0135 12.7505 15.009 12.8465 15.009 12.9485C14.994 13.505 14.976 14.1365 15.369 14.396C15.4203 14.4281 15.4795 14.4453 15.54 14.4455C15.6765 14.4455 16.0875 14.4455 17.2005 12.536C17.5438 11.9214 17.842 11.2827 18.093 10.625C18.1155 10.586 18.1815 10.466 18.2595 10.4195C18.3171 10.3901 18.3809 10.3752 18.4455 10.376H21.117C21.408 10.376 21.6075 10.4195 21.645 10.532C21.711 10.7105 21.633 11.255 20.4135 12.9065L19.869 13.625C18.7635 15.074 18.7635 15.1475 19.938 16.247V16.247Z" fill="white" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social" aria-label="Telegram" target="_blank">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 0C6.71625 0 0 6.71625 0 15C0 23.2837 6.71625 30 15 30C23.2837 30 30 23.2837 30 15C30 6.71625 23.2837 0 15 0ZM22.3675 10.2762L19.905 21.8762C19.7237 22.6987 19.2338 22.8988 18.55 22.5113L14.8 19.7487L12.9925 21.4913C12.8175 21.7163 12.5462 21.86 12.2425 21.86C12.24 21.86 12.2387 21.86 12.2362 21.86L12.5025 18.0425L19.4525 11.765C19.7525 11.4987 19.385 11.3475 18.9863 11.6138L10.4 17.0212L6.7 15.8662C5.9 15.6125 5.8775 15.0663 6.86875 14.6738L21.3263 9.10125C21.9988 8.85625 22.5837 9.26125 22.3662 10.2775L22.3675 10.2762Z" fill="white" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESKTOP: divider line -->
+        <div class="footer__divider"></div>
+
+        <!-- MOBILE: full mobile layout -->
+        <div class="footer__mobile">
+            <a href="index.html" class="footer__mobile-logo">
+                <img src="media/logo.svg" alt="Salbero Logo">
+                <span>PREMIUM<br>WOOD DECOR</span>
+            </a>
+
+            <div class="footer__mobile-section">
+                <span class="footer__mobile-label">Навигация:</span>
+                <div class="footer__mobile-links">
+                    <a href="index.html#section-05" class="footer__mobile-link">Коллекция Desert</a>
+                    <a href="gallery.html" class="footer__mobile-link">Галерея</a>
+                    <a href="index.html#section-15" class="footer__mobile-link">Заказать</a>
+                    <a href="index.html#section-24" class="footer__mobile-link">Контакты</a>
+                    <a href="about.html" class="footer__mobile-link">О бренде</a>
+                </div>
+            </div>
+
+            <div class="footer__mobile-section">
+                <span class="footer__mobile-label">Документы:</span>
+                <div class="footer__mobile-links">
+                    <a href="#" class="footer__mobile-link">Реквизиты</a>
+                    <a href="#" class="footer__mobile-link">Договор оферты</a>
+                </div>
+            </div>
+
+            <div class="footer__mobile-socials">
+                <a href="#" class="footer__mobile-social" aria-label="VKontakte" target="_blank">
+                    <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.4 0.000488281C6.447 0.000488281 0 6.44749 0 14.4005C0 22.3535 6.447 28.8005 14.4 28.8005C22.353 28.8005 28.8 22.3535 28.8 14.4005C28.8 6.44749 22.353 0.000488281 14.4 0.000488281ZM19.938 16.247C19.938 16.247 21.2115 17.504 21.525 18.0875C21.534 18.0995 21.5385 18.1115 21.5415 18.1175C21.669 18.332 21.699 18.4985 21.636 18.623C21.531 18.83 21.171 18.932 21.048 18.941H18.798C18.642 18.941 18.315 18.9005 17.919 18.6275C17.6145 18.4145 17.3145 18.065 17.022 17.7245C16.5855 17.2175 16.2075 16.7795 15.8265 16.7795C15.7781 16.7794 15.73 16.787 15.684 16.802C15.396 16.895 15.027 17.306 15.027 18.401C15.027 18.743 14.757 18.9395 14.5665 18.9395H13.536C13.185 18.9395 11.3565 18.8165 9.7365 17.108C7.7535 15.0155 5.9685 10.8185 5.9535 10.7795C5.841 10.508 6.0735 10.3625 6.327 10.3625H8.5995C8.9025 10.3625 9.0015 10.547 9.0705 10.7105C9.1515 10.901 9.4485 11.6585 9.936 12.5105C10.7265 13.8995 11.211 14.4635 11.5995 14.4635C11.6723 14.4626 11.7439 14.4441 11.808 14.4095C12.315 14.1275 12.2205 12.32 12.198 11.945C12.198 11.8745 12.1965 11.1365 11.937 10.7825C11.751 10.526 11.4345 10.4285 11.2425 10.3925C11.3202 10.2853 11.4226 10.1983 11.541 10.139C11.889 9.96499 12.516 9.93949 13.1385 9.93949H13.485C14.16 9.94849 14.334 9.99199 14.5785 10.0535C15.0735 10.172 15.084 10.4915 15.0405 11.585C15.027 11.8955 15.0135 12.2465 15.0135 12.6605C15.0135 12.7505 15.009 12.8465 15.009 12.9485C14.994 13.505 14.976 14.1365 15.369 14.396C15.4203 14.4281 15.4795 14.4453 15.54 14.4455C15.6765 14.4455 16.0875 14.4455 17.2005 12.536C17.5438 11.9214 17.842 11.2827 18.093 10.625C18.1155 10.586 18.1815 10.466 18.2595 10.4195C18.3171 10.3901 18.3809 10.3752 18.4455 10.376H21.117C21.408 10.376 21.6075 10.4195 21.645 10.532C21.711 10.7105 21.633 11.255 20.4135 12.9065L19.869 13.625C18.7635 15.074 18.7635 15.1475 19.938 16.247V16.247Z" fill="white" />
+                    </svg>
+                </a>
+                <a href="#" class="footer__mobile-social" aria-label="Telegram" target="_blank">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 0C6.71625 0 0 6.71625 0 15C0 23.2837 6.71625 30 15 30C23.2837 30 30 23.2837 30 15C30 6.71625 23.2837 0 15 0ZM22.3675 10.2762L19.905 21.8762C19.7237 22.6987 19.2338 22.8988 18.55 22.5113L14.8 19.7487L12.9925 21.4913C12.8175 21.7163 12.5462 21.86 12.2425 21.86C12.24 21.86 12.2387 21.86 12.2362 21.86L12.5025 18.0425L19.4525 11.765C19.7525 11.4987 19.385 11.3475 18.9863 11.6138L10.4 17.0212L6.7 15.8662C5.9 15.6125 5.8775 15.0663 6.86875 14.6738L21.3263 9.10125C21.9988 8.85625 22.5837 9.26125 22.3662 10.2775L22.3675 10.2762Z" fill="white" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- BOTTOM row -->
+        <div class="footer__bottom">
+            <p class="footer__copyright">
+                Все права защищены.<br class="footer__mobile-br">
+                Отправляя любую форму на сайте, вы соглашаетесь<br class="footer__mobile-br">
+                с <a href="#">политикой конфиденциальности</a>
+            </p>
+            <div class="footer__doc-links">
+                <a href="#" class="footer__doc-link">Реквизиты</a>
+                <a href="#" class="footer__doc-link">Договор оферты</a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="scripts/brand-page.js"></script>
+
+</body>
+
+</html>

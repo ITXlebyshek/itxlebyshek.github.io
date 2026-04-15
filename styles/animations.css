@@ -1,0 +1,181 @@
+/* ============================================
+   ANIMATIONS — All @keyframes & Reveal Logic
+   ============================================ */
+
+/* ── Core Reveal Animations ── */
+
+@keyframes revealBlock {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes revealCenter {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 40px) scale(0.98);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes revealBgCenter {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+}
+
+@keyframes slideInBg {
+    0% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ── New Premium Animations for Sections 9-19 ── */
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.92);
+        filter: blur(12px);
+    }
+    60% {
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px);
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes clipRevealUp {
+    0% {
+        clip-path: inset(100% 0 0 0);
+        opacity: 0;
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+    }
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* ── Animation Variation Classes for Sections 9-19 ── */
+
+/* Type A: Scale + Blur reveal (даёт эффект "фокусировки камеры") */
+.reveal-a .block-bg {
+    opacity: 0;
+}
+.reveal-a.visible .block-bg {
+    animation: fadeInScale 2s var(--ease-reveal) forwards;
+}
+
+/* Type B: Slide from left + blur */
+.reveal-b .block-bg {
+    opacity: 0;
+}
+.reveal-b.visible .block-bg {
+    animation: slideInLeft 1.8s var(--ease-reveal) 0.1s forwards;
+}
+
+/* Type C: Clip-path reveal from bottom */
+.reveal-c .block-bg {
+    opacity: 0;
+}
+.reveal-c.visible .block-bg {
+    animation: clipRevealUp 1.6s var(--ease-reveal) forwards;
+}
+
+/* Type D: Soft fade-in-up */
+.reveal-d .block-bg {
+    opacity: 0;
+}
+.reveal-d.visible .block-bg {
+    animation: fadeInUp 1.8s var(--ease-reveal) forwards;
+}
+
+/* Type E: Slide from right */
+.reveal-e .block-bg {
+    opacity: 0;
+}
+.reveal-e.visible .block-bg {
+    animation: slideInRight 1.8s var(--ease-reveal) 0.1s forwards;
+}

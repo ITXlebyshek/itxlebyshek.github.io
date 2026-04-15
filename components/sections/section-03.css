@@ -1,0 +1,62 @@
+/* ── Section 03 ── */
+
+.section-03 .title1,
+.section-03 .block1,
+.section-03 .block2 {
+    opacity: 0;
+}
+
+.section-03 .title1 {
+    position: absolute;
+    top: 98px;
+    left: 108px;
+    z-index: 1;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--fs-2xl);
+    line-height: var(--lh-tight);
+    color: var(--color-gold);
+    max-width: 580px;
+}
+
+.section-03 span {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: var(--fs-md);
+    line-height: var(--lh-normal);
+    color: var(--color-white);
+    margin-top: 30px;
+    max-width: 460px;
+}
+
+.section-03 .block1 {
+    position: absolute;
+    top: 109px;
+    left: 753px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 496px;
+}
+
+.section-03 .block2 {
+    position: absolute;
+    top: 109px;
+    left: 1314px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 496px;
+}
+
+.section-03.visible .title1 {
+    animation: revealBlock 1.2s var(--ease-reveal) 0.3s forwards;
+}
+
+.section-03.visible .block1 {
+    animation: revealBlock 1.4s var(--ease-reveal) 0.6s forwards;
+}
+
+.section-03.visible .block2 {
+    animation: revealBlock 1.4s var(--ease-reveal) 0.9s forwards;
+}

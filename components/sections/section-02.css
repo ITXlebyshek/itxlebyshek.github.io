@@ -1,0 +1,30 @@
+/* ── Section 02 ── */
+
+.section-02 .block1,
+.section-02 .block2,
+.section-02 .block3 {
+    opacity: 0;
+}
+
+.section-02.visible .block1 {
+    position: absolute;
+    top: 441px;
+    left: 50%;
+    animation: revealBgCenter 1.8s var(--ease-reveal) 0.2s forwards;
+}
+
+.section-02.visible .block2 {
+    position: absolute;
+    top: 375px;
+    left: 50%;
+    z-index: 1;
+    animation: revealCenter 1.4s var(--ease-reveal) 0.5s forwards;
+}
+
+.section-02.visible .block3 {
+    position: absolute;
+    top: 958px;
+    left: 50%;
+    z-index: 1;
+    animation: revealCenter 1.2s var(--ease-reveal) 0.8s forwards;
+}

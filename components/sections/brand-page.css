@@ -1,0 +1,166 @@
+/* ============================================
+   BRAND PAGE — «О бренде» Sections
+   Desktop & Mobile layout + reveal animations
+   ============================================ */
+
+/* ── Desktop Sections: Reveal Animations ── */
+
+.brand-s01 .block-bg { opacity: 0; }
+.brand-s01.visible .block-bg {
+    animation: revealFocus 2s var(--ease-reveal) forwards;
+}
+
+.brand-s02 .block-bg { opacity: 0; }
+.brand-s02.visible .block-bg {
+    animation: revealSmooth 1.8s var(--ease-reveal) forwards;
+}
+
+.brand-s03 .block-bg { opacity: 0; }
+.brand-s03.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) 0.1s forwards;
+}
+
+.brand-s04 .block-bg { opacity: 0; }
+.brand-s04.visible .block-bg {
+    animation: revealSmooth 1.6s var(--ease-reveal) forwards;
+}
+
+.brand-s05 .block-bg { opacity: 0; }
+.brand-s05.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) forwards;
+}
+
+.brand-s06 .block-bg { opacity: 0; }
+.brand-s06.visible .block-bg {
+    animation: revealSmooth 1.8s var(--ease-reveal) 0.1s forwards;
+}
+
+.brand-s07 .block-bg { opacity: 0; }
+.brand-s07.visible .block-bg {
+    animation: revealFocus 2s var(--ease-reveal) forwards;
+}
+
+.brand-s08 .block-bg { opacity: 0; }
+.brand-s08.visible .block-bg {
+    animation: revealSmooth 1.6s var(--ease-reveal) forwards;
+}
+
+.brand-s09 .block-bg { opacity: 0; }
+.brand-s09.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) 0.1s forwards;
+}
+
+/* ── Brand Video Section (s10) ── */
+.brand-video-section {
+    height: auto;
+    overflow: visible;
+    background-color: #16120E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.brand-video-wrap {
+    width: 1702px;
+    max-width: 100%;
+    margin: 0 auto;
+    opacity: 0;
+}
+
+.brand-video-section.visible .brand-video-wrap {
+    animation: revealSmooth 1.8s var(--ease-reveal) forwards;
+}
+
+.brand-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+}
+
+.brand-s11 .block-bg { opacity: 0; }
+.brand-s11.visible .block-bg {
+    animation: revealFocus 2.2s var(--ease-reveal) forwards;
+}
+
+/* ── Global Reveal Keyframes (shared with main page) ── */
+@keyframes revealFocus {
+    0% {
+        opacity: 0;
+        filter: blur(12px) brightness(0.7);
+    }
+    60% {
+        filter: blur(2px) brightness(0.95);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0) brightness(1);
+    }
+}
+
+@keyframes revealSmooth {
+    0% {
+        opacity: 0;
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* ── По умолчанию мобильные секции скрыты ── */
+.mobile-sections {
+    display: none;
+}
+
+/* ── Mobile: Brand Page Sections ── */
+@media (max-width: 991px) {
+
+    /* Hide desktop, show mobile */
+    .container {
+        display: none !important;
+    }
+
+    .mobile-sections {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* ── Common mobile section ── */
+    .mob-brand {
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    .mob-brand .mob-bg {
+        position: relative;
+        width: 100%;
+    }
+
+    .mob-brand .mob-bg img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    /* ── Reveal animation for mobile ── */
+    .mob-brand .mob-bg {
+        opacity: 0;
+        transition: opacity 0.6s var(--ease-reveal);
+    }
+
+    .mob-brand.visible .mob-bg {
+        opacity: 1;
+    }
+
+    /* Mobile padding for header */
+    main {
+        padding-top: 80px !important;
+    }
+}

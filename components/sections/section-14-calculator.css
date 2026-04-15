@@ -1,0 +1,345 @@
+/* ============================================
+   SECTION 14 — Calculator (Калькулятор стоимости)
+   ============================================ */
+
+.section-calculator {
+    height: auto !important;
+    min-height: 700px;
+    overflow: visible !important;
+    padding: 109px 80px;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* ── Разделители ── */
+.calc-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(169, 128, 88, 0.6) 0%, rgba(169, 128, 88, 0.15) 100%);
+}
+
+.calc-divider--top {
+    margin-bottom: 40px;
+}
+
+.calc-divider--bottom {
+    margin-top: 40px;
+}
+
+/* ── Заголовок ── */
+.calc-title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 40%;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin: 0 0 50px 0;
+    padding-top: 20px;
+    text-transform: uppercase;
+}
+
+/* ── Layout: left + right ── */
+.calc-layout {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* ── Левая часть — управление ── */
+.calc-left {
+    flex: 1;
+    max-width: 730px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Правая часть — картинка ── */
+.calc-right {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* ── Кнопки-контролы ── */
+.calc-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+}
+
+/* ── Группа кнопок ── */
+.calc-group {
+    display: flex;
+    gap: 10px;
+}
+
+.calc-btn {
+    flex: 1;
+}
+
+/* ── Кнопка ── */
+.calc-btn {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 132%;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: transparent;
+    border: 1.45px solid rgba(255, 255, 255, 0.3);
+    border-radius: 58px;
+    padding: 15px 34px;
+    height: 57px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+    white-space: nowrap;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc-btn:hover {
+    border-color: rgba(246, 182, 107, 0.6);
+    background: rgba(169, 128, 88, 0.15);
+}
+
+.calc-btn:active {
+    transform: scale(0.97);
+}
+
+.calc-btn--active {
+    background: #a98058;
+    border: 1.45px solid #f6b66b;
+}
+
+.calc-btn--active:hover {
+    background: #b8905f;
+    border-color: #f6b66b;
+}
+
+.calc-btn--wide {
+    padding: 15px 34px;
+}
+
+/* ── Масштаб (человечки) ── */
+.calc-scale {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 30px 0 10px;
+    min-height: 200px;
+    margin-bottom: 65px;
+}
+
+.calc-scale-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+.calc-scale-item svg {
+    width: 22px;
+    height: 71px;
+    position: absolute;
+    bottom: 13px;
+}
+
+.calc-scale-item--active {
+    opacity: 1;
+}
+
+.calc-scale-item:hover {
+    opacity: 0.8;
+}
+
+.calc-scale-item--active:hover {
+    opacity: 1;
+}
+
+.calc-scale-frame {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: border-color 0.3s ease;
+}
+
+.calc-scale-item--active .calc-scale-frame {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Размеры квадратиков для каждого варианта */
+.calc-scale-item[data-scale-size="1400x1200"] .calc-scale-frame {
+    width: 51px;
+    height: 45px;
+}
+
+.calc-scale-item[data-scale-size="1750x1500"] .calc-scale-frame {
+    width: 67px;
+    height: 59px;
+}
+
+.calc-scale-item[data-scale-size="2100x1800"] .calc-scale-frame {
+    width: 96px;
+    height: 77px;
+}
+
+.calc-scale-item[data-scale-size="2450x2100"] .calc-scale-frame {
+    width: 124px;
+    height: 93px;
+}
+
+/* ── Футер: цена + кнопка ── */
+.calc-footer {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+    padding-top: 0;
+}
+
+.calc-price {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    color: #fff;
+    min-width: 200px;
+    display: flex;
+    align-items: baseline;
+    overflow: hidden;
+}
+
+/* ── Одометр: колонка одной цифры ── */
+.calc-digit-col {
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Ведущая цифра — плавно схлопывается когда = 0 */
+.calc-digit-col--leading {
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Лента цифр 0–9 внутри колонки */
+.calc-digit-strip {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+.calc-digit-strip span {
+    display: block;
+    height: 1em;
+    line-height: 1;
+}
+
+/* Пробел-разделитель тысяч */
+.calc-digit-space {
+    display: inline-block;
+    width: 0.3em;
+}
+
+/* Символ ₽ */
+.calc-digit-suffix {
+    display: inline-block;
+    margin-left: 0.3em;
+}
+
+.calc-order-btn {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 132%;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: #a98058;
+    border: 1px solid #a98058;
+    border-radius: 30px;
+    padding: 14px 36px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+}
+
+.calc-order-btn:hover {
+    background: #b8905f;
+    box-shadow: 0 4px 20px rgba(169, 128, 88, 0.35);
+}
+
+.calc-order-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Превью картинка ── */
+.calc-preview-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* ── Анимация появления ── */
+.section-calculator .calc-title,
+.section-calculator .calc-group,
+.section-calculator .calc-scale,
+.section-calculator .calc-footer,
+.section-calculator .calc-right {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease-reveal), transform 0.7s var(--ease-reveal);
+}
+
+.section-calculator.visible .calc-title {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.section-calculator.visible .calc-group:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.section-calculator.visible .calc-group:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.section-calculator.visible .calc-group:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.section-calculator.visible .calc-scale {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.section-calculator.visible .calc-footer {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.section-calculator.visible .calc-right {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}

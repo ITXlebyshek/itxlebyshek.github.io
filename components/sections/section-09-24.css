@@ -1,0 +1,256 @@
+/* ============================================
+   SECTIONS 09–24 — Reordered Content Blocks
+   ============================================ */
+
+/* ── Section 09 (Old 14): Focus ── */
+.section-09 .block-bg {
+    opacity: 0;
+}
+
+.section-09.visible .block-bg {
+    animation: revealFocus 2s var(--ease-reveal) forwards;
+}
+
+/* ── Section 10 (Old 12): Focus ── */
+.section-10 .block-bg {
+    opacity: 0;
+}
+
+.section-10.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) forwards;
+}
+
+/* ── Section 11 (Old 13): Smooth ── */
+.section-11 .block-bg {
+    opacity: 0;
+}
+
+.section-11.visible .block-bg {
+    animation: revealSmooth 1.6s var(--ease-reveal) 0.1s forwards;
+}
+
+/* ── Section 12 (New Quality): Focus ── */
+.section-12 .block-bg {
+    opacity: 0;
+}
+
+.section-12.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) forwards;
+}
+
+/* ── Section 13 (Old 15): Focus ── */
+.section-13 .block-bg {
+    opacity: 0;
+}
+
+.section-13.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) 0.1s forwards;
+}
+
+/* ── Section 14, 15, 16, 24 (Placeholders) ── */
+[class*="-placeholder"] {
+    padding: 100px 0;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.placeholder-box {
+    border: 2px dashed #A98058;
+    padding: 60px;
+    color: #A98058;
+    text-align: center;
+    max-width: 800px;
+}
+
+.placeholder-box h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ── Section 17 (Old 16): Smooth ── */
+.section-17 .block-bg {
+    opacity: 0;
+}
+
+.section-17.visible .block-bg {
+    animation: revealSmooth 1.8s var(--ease-reveal) forwards;
+}
+
+/* ── Section 18 (Old 09): Focus ── */
+.section-18 .block-bg {
+    opacity: 0;
+}
+
+.section-18.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) forwards;
+}
+
+/* ── Section 19 (Old 10): Focus ── */
+.section-19 .block-bg {
+    opacity: 0;
+}
+
+.section-19.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) 0.1s forwards;
+}
+
+/* ── Section 20 (Old 11): Smooth ── */
+.section-20 .block-bg {
+    opacity: 0;
+}
+
+.section-20.visible .block-bg {
+    animation: revealSmooth 1.8s var(--ease-reveal) forwards;
+}
+
+/* ── Section 21 (Old 17): Focus ── */
+.section-21 .block-bg {
+    opacity: 0;
+}
+
+.section-21.visible .block-bg {
+    animation: revealFocus 1.8s var(--ease-reveal) forwards;
+}
+
+/* ── Section 22 (Old 18): Smooth ── */
+.section-22 .block-bg {
+    opacity: 0;
+}
+
+.section-22.visible .block-bg {
+    animation: revealSmooth 1.6s var(--ease-reveal) 0.1s forwards;
+}
+
+/* ── Section 23 (Old 19): Focus ── */
+.section-23 .block-bg {
+    opacity: 0;
+}
+
+.section-23.visible .block-bg {
+    animation: revealFocus 2.2s var(--ease-reveal) forwards;
+}
+
+/* ── Section 24: CTA ── */
+.section-24 {
+    position: relative;
+}
+
+.section-24 .block-bg {
+    opacity: 0;
+}
+
+.section-24.visible .block-bg {
+    animation: revealSmooth 1.8s var(--ease-reveal) forwards;
+}
+
+/* QR-блоки — абсолютное позиционирование поверх фона */
+.s24-qr-block {
+    position: absolute;
+    right: 208px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease-reveal), transform 0.7s var(--ease-reveal);
+}
+
+.section-24.visible .s24-qr-block--catalog {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.section-24.visible .s24-qr-block--contact {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.s24-qr-block--catalog {
+    top: 103px;
+}
+
+.s24-qr-block--contact {
+    top: 622px;
+}
+
+.s24-qr-img {
+    width: 240px;
+    height: 240px;
+    display: block;
+}
+
+.s24-qr-btn {
+    margin-top: 40px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #fff;
+    background: #a98058;
+    border: 1.2px solid #f6b66b;
+    border-radius: 48px;
+    padding: 25px 36px;
+    height: 69px;
+    box-sizing: border-box;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+.s24-qr-btn:hover {
+    background: #b8905f;
+    box-shadow: 0 4px 20px rgba(169, 128, 88, 0.35);
+}
+
+.s24-qr-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Section 25: Team / Contacts ── */
+.section-25 .block-bg {
+    opacity: 0;
+}
+
+.section-25.visible .block-bg {
+    animation: revealSmooth 1.8s var(--ease-reveal) forwards;
+}
+
+/* ── Global Reveal Keyframes ── */
+@keyframes revealFocus {
+    0% {
+        opacity: 0;
+        filter: blur(12px) brightness(0.7);
+    }
+
+    60% {
+        filter: blur(2px) brightness(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0) brightness(1);
+    }
+}
+
+@keyframes revealSmooth {
+    0% {
+        opacity: 0;
+        filter: blur(6px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
