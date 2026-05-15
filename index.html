@@ -1,86 +1,62 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Генератор заявок операторам связи на передачу сигнала оповещения населения">
     <title>Генератор заявок</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="app">
-        <header class="header">
-            <div class="header__glow"></div>
-            <h1 class="header__title">Генератор заявок</h1>
-            <p class="header__subtitle">Заполните данные → получите 7 готовых документов в ZIP-архиве</p>
-        </header>
+        <h1 class="title">Генератор заявок</h1>
 
-        <main class="main">
-            <form id="formZayavki" class="form" autocomplete="off">
-                <!-- Номер заявки -->
+        <form id="formZayavki" class="form" autocomplete="off">
+            <div class="form__row">
                 <div class="form__group">
                     <label class="form__label" for="nomer">Номер заявки</label>
                     <input type="number" id="nomer" class="form__input" placeholder="28" min="1" required>
                 </div>
-
-                <!-- Время направления заявки -->
                 <div class="form__group">
-                    <label class="form__label" for="vremya_napravleniya">Время направления заявки</label>
+                    <label class="form__label" for="vremya_napravleniya">Время направления</label>
                     <input type="time" id="vremya_napravleniya" class="form__input" required>
                 </div>
+            </div>
 
-                <!-- Дата и время принятия решения -->
+            <div class="form__row">
                 <div class="form__group">
-                    <label class="form__label" for="data_resheniya_date">Дата и время принятия решения</label>
-                    <div class="form__row">
+                    <label class="form__label">Дата и время решения</label>
+                    <div class="form__pair">
                         <input type="date" id="data_resheniya_date" class="form__input" required>
                         <input type="time" id="data_resheniya_time" class="form__input" required>
                     </div>
                 </div>
-
-                <!-- Дата и время начала передачи -->
                 <div class="form__group">
-                    <label class="form__label" for="data_nachala_date">Дата и время начала передачи</label>
-                    <div class="form__row">
+                    <label class="form__label">Дата и время начала передачи</label>
+                    <div class="form__pair">
                         <input type="date" id="data_nachala_date" class="form__input" required>
                         <input type="time" id="data_nachala_time" class="form__input" required>
                     </div>
                 </div>
+            </div>
 
-                <!-- Текст сигнала оповещения -->
-                <div class="form__group">
-                    <label class="form__label" for="tekst">Текст сигнала оповещения</label>
-                    <textarea id="tekst" class="form__input form__textarea" rows="3"
-                        placeholder="БЕСПИЛОТНАЯ ОПАСНОСТЬ объявлена в Челябинской области..."
-                        required></textarea>
+            <div class="form__group">
+                <div class="form__label-row">
+                    <label class="form__label" for="tekst">Текст оповещения</label>
+                    <span class="form__counter"><span id="tekstCount">0</span>/134</span>
                 </div>
+                <textarea id="tekst" class="form__input form__textarea" rows="2" maxlength="134"
+                    placeholder="Введите текст оповещения..." required></textarea>
+            </div>
 
-                <!-- Файлы -->
-                <div class="form__files" id="fileList">
-                    <div class="form__files-title">Будут сгенерированы:</div>
-                    <ul class="form__files-list">
-                        <li>Заявка Билайн.docx</li>
-                        <li>Заявка Мегафон.docx</li>
-                        <li>Заявка Ростелеком.docx</li>
-                        <li>Заявка Теле2.docx</li>
-                        <li>Заявка Т мобайл.docx</li>
-                        <li>Заявка Альфа.docx</li>
-                        <li>Заявка МТС.docx <span class="form__files-note">(+4ч окончание)</span></li>
-                    </ul>
-                </div>
-
-                <button type="submit" class="form__submit" id="submitBtn">
-                    <span class="form__submit-text">Скачать ZIP</span>
-                    <span class="form__submit-loader" id="loader"></span>
-                </button>
-            </form>
-        </main>
-
-        <footer class="footer">
-            <p>Шаблоны хранятся в <code>templates/</code> — редактируйте .docx напрямую при необходимости</p>
-        </footer>
+            <button type="submit" class="form__submit" id="submitBtn">
+                <span class="form__submit-text">Скачать ZIP</span>
+                <span class="form__submit-loader" id="loader"></span>
+            </button>
+        </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.7/dist/pizzip.js"></script>
@@ -89,4 +65,5 @@
     <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
