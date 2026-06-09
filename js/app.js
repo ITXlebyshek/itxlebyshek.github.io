@@ -1,230 +1,421 @@
-/**
- * Генератор заявок — app.js
- * Загружает .docx шаблоны, подставляет данные через docxtemplater,
- * собирает ZIP и скачивает.
- */
+document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('gameBanner');
+    const container = banner.parentElement;
+    const bgMain = document.getElementById('bgMain');
+    const bgReady = document.getElementById('bgReady');
+    const bgEnd = document.getElementById('bgEnd');
+    const faceTarget = document.getElementById('faceTarget');
+    const dragItems = document.querySelectorAll('.drag-item');
+    const customCursor = document.getElementById('gameCursor');
+    const feedbackCross = document.getElementById('feedbackCross');
+    const feedbackCheck = document.getElementById('feedbackCheck');
 
-// Шаблоны: файл → имя в ZIP
-const TEMPLATES = [
-    { file: 'templates/beeline.docx',    zipName: 'Заявка Билайн.docx' },
-    { file: 'templates/megafon.docx',    zipName: 'Заявка Мегафон.docx' },
-    { file: 'templates/rostelecom.docx', zipName: 'Заявка Ростелеком.docx' },
-    { file: 'templates/tele2.docx',      zipName: 'Заявка Теле2.docx' },
-    { file: 'templates/tmobile.docx',    zipName: 'Заявка Т мобайл.docx' },
-    { file: 'templates/alfa.docx',       zipName: 'Заявка Альфа.docx' },
-    { file: 'templates/mts.docx',        zipName: 'Заявка МТС.docx', isMts: true },
-];
+    const canvas = document.getElementById('particlesCanvas');
+    const ctx = canvas.getContext('2d');
+    const dragItemsContainer = document.getElementById('dragItemsContainer');
 
-/**
- * Форматирование времени: "11:30" → "11 час 30 мин"
- */
-function formatTime(timeStr) {
-    const [h, m] = timeStr.split(':');
-    return `${parseInt(h)} час ${m} мин`;
-}
+    let isGameOver = false;
+    let isBusy = false;
+    let activeDragItem = null;
+    let dragStartPos = { x: 0, y: 0 };
+    
+    let isUserActive = false;
+    let cursorX = 46;
+    let cursorY = 243;
+    let idleTimer = null;
+    let idleAnimId = null;
 
-/**
- * Форматирование даты: "2026-05-05" → "05.05.2026г."
- */
-function formatDate(dateStr) {
-    const [y, m, d] = dateStr.split('-');
-    return `${d}.${m}.${y}г.`;
-}
+    let particles = [];
+    let isParticleLoopRunning = false;
 
-/**
- * Форматирование даты+времени: → "05.05.2026г. 11 час 00 мин"
- */
-function formatDateTime(dateStr, timeStr) {
-    return `${formatDate(dateStr)} ${formatTime(timeStr)}`;
-}
+    const BANNER_WIDTH = 240;
+    const BANNER_HEIGHT = 400;
+    const CANVAS_PADDING = 40;
+    
+    canvas.width = BANNER_WIDTH + CANVAS_PADDING * 2;
+    canvas.height = BANNER_HEIGHT + CANVAS_PADDING * 2;
 
-/**
- * Прибавить N часов к времени, вернуть "HH час MM мин"
- */
-function addHours(dateStr, timeStr, hours) {
-    const [y, m, d] = dateStr.split('-').map(Number);
-    const [h, min] = timeStr.split(':').map(Number);
-    const dt = new Date(y, m - 1, d, h + hours, min);
-    const rH = dt.getHours();
-    const rM = String(dt.getMinutes()).padStart(2, '0');
-    return `${rH} час ${rM} мин`;
-}
+    const idlePath = [
+        { x: 46, y: 243, duration: 1500 },
+        { x: 46, y: 284, duration: 1200, hoverItem: 'lipstick' },
+        { x: 125, y: 291, duration: 1200, hoverItem: 'glasses' },
+        { x: 197, y: 282, duration: 1200, hoverItem: 'tooth' },
+        { x: 120, y: 150, duration: 1500, hoverItem: 'face' }
+    ];
 
-/**
- * Собрать данные из формы
- */
-function collectFormData() {
-    const nomer = document.getElementById('nomer').value;
-    const vremya = document.getElementById('vremya_napravleniya').value;
-    const reshDate = document.getElementById('data_resheniya_date').value;
-    const reshTime = document.getElementById('data_resheniya_time').value;
-    const nachDate = document.getElementById('data_nachala_date').value;
-    const nachTime = document.getElementById('data_nachala_time').value;
-    const tekst = document.getElementById('tekst').value;
+    let currentPathIndex = 0;
+    let pathStartTime = null;
 
-    return {
-        nomer: nomer,
-        vremya_napravleniya: formatTime(vremya),
-        data_resheniya: formatDateTime(reshDate, reshTime),
-        data_nachala: formatDateTime(nachDate, nachTime),
-        tekst: tekst,
-        // МТС: время окончания = время начала + 4 часа
-        vremya_okonchaniya: addHours(nachDate, nachTime, 4),
-    };
-}
-
-/**
- * Загрузить шаблон .docx как ArrayBuffer
- */
-async function loadTemplate(url) {
-    const resp = await fetch(url);
-    if (!resp.ok) throw new Error(`Не удалось загрузить ${url}: ${resp.status}`);
-    return resp.arrayBuffer();
-}
-
-/**
- * Заполнить шаблон данными
- */
-function fillTemplate(templateBuf, data) {
-    const zip = new PizZip(templateBuf);
-    const doc = new window.docxtemplater(zip, {
-        paragraphLoop: true,
-        linebreaks: true,
-        delimiters: { start: '{', end: '}' },
-    });
-    doc.render(data);
-    return doc.getZip().generate({ type: 'uint8array', mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
-}
-
-/**
- * Показать статус
- */
-function showStatus(msg, type = 'success') {
-    // Remove old
-    const old = document.querySelector('.status');
-    if (old) old.remove();
-
-    const el = document.createElement('div');
-    el.className = `status status--${type}`;
-    el.textContent = msg;
-    document.getElementById('submitBtn').insertAdjacentElement('afterend', el);
-
-    if (type === 'success') {
-        setTimeout(() => el.remove(), 5000);
+    function lerp(start, end, amt) {
+        return (1 - amt) * start + amt * end;
     }
-}
 
-/**
- * Главная функция генерации
- */
-async function generate() {
-    const btn = document.getElementById('submitBtn');
-    btn.disabled = true;
-    btn.classList.add('form__submit--loading');
+    function easeOutCubic(x) {
+        return 1 - Math.pow(1 - x, 3);
+    }
 
-    try {
-        const data = collectFormData();
-        const zip = new JSZip();
+    function runIdleAnimation(timestamp) {
+        if (isUserActive || isGameOver) return;
+        if (!pathStartTime) pathStartTime = timestamp;
+        
+        const currentTarget = idlePath[currentPathIndex];
+        const prevTarget = idlePath[currentPathIndex === 0 ? idlePath.length - 1 : currentPathIndex - 1];
+        
+        const elapsed = timestamp - pathStartTime;
+        const progress = Math.min(elapsed / currentTarget.duration, 1);
+        const easedProgress = easeOutCubic(progress);
+        
+        cursorX = lerp(prevTarget.x, currentTarget.x, easedProgress);
+        cursorY = lerp(prevTarget.y, currentTarget.y, easedProgress);
+        
+        updateCursorPosition(cursorX, cursorY);
+        
+        if (progress >= 0.8 && currentTarget.hoverItem) {
+            const itemElement = document.getElementById(`item${capitalize(currentTarget.hoverItem)}`);
+            if (itemElement) itemElement.classList.add('hovered');
+        }
+        
+        if (progress >= 1) {
+            dragItems.forEach(item => item.classList.remove('hovered'));
+            currentPathIndex = (currentPathIndex + 1) % idlePath.length;
+            pathStartTime = timestamp;
+        }
+        
+        idleAnimId = requestAnimationFrame(runIdleAnimation);
+    }
 
-        // Загружаем и заполняем все шаблоны
-        const promises = TEMPLATES.map(async (tpl) => {
-            const buf = await loadTemplate(tpl.file);
-            const filled = fillTemplate(buf, data);
-            zip.file(tpl.zipName, filled);
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function updateCursorPosition(x, y) {
+        customCursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    }
+
+    function startIdleTimer() {
+        if (isGameOver) return;
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => {
+            if (!isUserActive && !isGameOver) {
+                banner.classList.add('has-cursor');
+                pathStartTime = null;
+                currentPathIndex = 0;
+                dragItems.forEach(item => item.classList.remove('hovered'));
+                idleAnimId = requestAnimationFrame(runIdleAnimation);
+            }
+        }, 5000);
+    }
+
+    function stopIdleAnimation() {
+        if (idleAnimId) {
+            cancelAnimationFrame(idleAnimId);
+            idleAnimId = null;
+        }
+        dragItems.forEach(item => item.classList.remove('hovered'));
+    }
+
+    banner.addEventListener('pointerenter', () => {
+        if (isGameOver) return;
+        isUserActive = true;
+        stopIdleAnimation();
+        banner.classList.add('has-cursor');
+    });
+
+    banner.addEventListener('pointerleave', () => {
+        if (isGameOver) return;
+        if (!activeDragItem) {
+            isUserActive = false;
+            banner.classList.remove('has-cursor');
+            startIdleTimer();
+        }
+    });
+
+    banner.addEventListener('pointermove', (e) => {
+        if (isGameOver) return;
+        
+        if (!isUserActive) {
+            isUserActive = true;
+            stopIdleAnimation();
+            banner.classList.add('has-cursor');
+        }
+        
+        const rect = banner.getBoundingClientRect();
+        const scaleX = rect.width / BANNER_WIDTH;
+        const scaleY = rect.height / BANNER_HEIGHT;
+        const x = (e.clientX - rect.left) / scaleX;
+        const y = (e.clientY - rect.top) / scaleY;
+        
+        updateCursorPosition(x, y);
+        startIdleTimer();
+    });
+
+    dragItems.forEach(item => {
+        item.addEventListener('pointerdown', (e) => {
+            if (isGameOver || isBusy) return;
+            isUserActive = true;
+            stopIdleAnimation();
+            
+            activeDragItem = item;
+            item.classList.add('dragging');
+            item.classList.remove('returning');
+            item.style.zIndex = 100;
+            
+            const rect = banner.getBoundingClientRect();
+            const scaleX = rect.width / BANNER_WIDTH;
+            const scaleY = rect.height / BANNER_HEIGHT;
+            const pointerX = (e.clientX - rect.left) / scaleX;
+            const pointerY = (e.clientY - rect.top) / scaleY;
+            
+            dragStartPos = {
+                x: pointerX - item.offsetLeft,
+                y: pointerY - item.offsetTop
+            };
+            
+            item.setPointerCapture(e.pointerId);
         });
 
-        await Promise.all(promises);
+        item.addEventListener('pointermove', (e) => {
+            if (activeDragItem !== item) return;
+            
+            const rect = banner.getBoundingClientRect();
+            const scaleX = rect.width / BANNER_WIDTH;
+            const scaleY = rect.height / BANNER_HEIGHT;
+            const pointerX = (e.clientX - rect.left) / scaleX;
+            const pointerY = (e.clientY - rect.top) / scaleY;
+            
+            updateCursorPosition(pointerX, pointerY);
+            
+            const tx = pointerX - item.offsetLeft - dragStartPos.x;
+            const ty = pointerY - item.offsetTop - dragStartPos.y;
+            
+            item.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+        });
 
-        // Генерируем и скачиваем ZIP
-        const zipBlob = await zip.generateAsync({ type: 'blob' });
-        saveAs(zipBlob, `Заявки_${data.nomer}.zip`);
+        item.addEventListener('pointerup', (e) => {
+            if (activeDragItem !== item) return;
+            
+            item.releasePointerCapture(e.pointerId);
+            item.classList.remove('dragging');
+            activeDragItem = null;
+            
+            const rect = banner.getBoundingClientRect();
+            const style = window.getComputedStyle(item);
+            const matrix = new DOMMatrix(style.transform);
+            const tx = matrix.m41;
+            const ty = matrix.m42;
+            
+            const itemCenterX = item.offsetLeft + tx + item.offsetWidth / 2;
+            const itemCenterY = item.offsetTop + ty + item.offsetHeight / 2;
+            
+            const faceLeft = faceTarget.offsetLeft;
+            const faceRight = faceLeft + faceTarget.offsetWidth;
+            const faceTop = faceTarget.offsetTop;
+            const faceBottom = faceTop + faceTarget.offsetHeight;
+            
+            const hit = (itemCenterX >= faceLeft && itemCenterX <= faceRight &&
+                         itemCenterY >= faceTop && itemCenterY <= faceBottom);
+            
+            if (hit) {
+                handleDrop(item.dataset.item, item);
+            } else {
+                returnItemToOrigin(item);
+                startIdleTimer();
+            }
+        });
+        
+        item.addEventListener('pointercancel', (e) => {
+            if (activeDragItem !== item) return;
+            item.releasePointerCapture(e.pointerId);
+            item.classList.remove('dragging');
+            activeDragItem = null;
+            returnItemToOrigin(item);
+            startIdleTimer();
+        });
+    });
 
-        showStatus(`✓ Архив «Заявки_${data.nomer}.zip» скачан`);
-    } catch (err) {
-        console.error(err);
-        showStatus(`Ошибка: ${err.message}`, 'error');
-    } finally {
-        btn.disabled = false;
-        btn.classList.remove('form__submit--loading');
+    function returnItemToOrigin(item) {
+        item.classList.add('returning');
+        item.style.transform = 'translate3d(0, 0, 0)';
+        
+        const handleTransitionEnd = () => {
+            item.classList.remove('returning');
+            item.style.zIndex = '';
+            item.removeEventListener('transitionend', handleTransitionEnd);
+        };
+        item.addEventListener('transitionend', handleTransitionEnd);
     }
-}
 
-// Обработка формы
-document.getElementById('formZayavki').addEventListener('submit', (e) => {
-    e.preventDefault();
-    generate();
-});
-
-// Автозаполнение сегодняшней даты
-const today = new Date().toISOString().split('T')[0];
-document.getElementById('data_resheniya_date').value = today;
-document.getElementById('data_nachala_date').value = today;
-
-// Счётчик символов текста оповещения
-const tekstInput = document.getElementById('tekst');
-const tekstCount = document.getElementById('tekstCount');
-function updateCounter() {
-    const len = tekstInput.value.length;
-    tekstCount.textContent = len;
-    tekstCount.parentElement.classList.toggle('form__counter--warn', len >= 120);
-    tekstCount.parentElement.classList.toggle('form__counter--over', len >= 134);
-}
-tekstInput.addEventListener('input', updateCounter);
-
-// ========== Пароль при входе ==========
-(function () {
-    const PASS = '4321';
-    const KEY = 'zayavki_auth';
-
-    const app = document.querySelector('.app');
-
-    // Прячем контент — без JS его не показать
-    app.style.display = 'none';
-
-    function unlock() {
-        app.style.display = '';
-    }
-
-    // Если уже авторизован в этой сессии
-    if (sessionStorage.getItem(KEY) === '1') {
-        unlock();
-        return;
-    }
-
-    // Создаём экран входа
-    const overlay = document.createElement('div');
-    overlay.className = 'auth-overlay';
-    overlay.innerHTML = `
-        <div class="auth-box">
-            <h2 class="auth-box__title">Вход</h2>
-            <input type="password" class="form__input auth-box__input" id="authPass" placeholder="Пароль" autofocus>
-            <button class="form__submit auth-box__btn" id="authBtn">Войти</button>
-            <div class="auth-box__error" id="authError"></div>
-        </div>
-    `;
-    document.body.appendChild(overlay);
-
-    const input = document.getElementById('authPass');
-    const btn = document.getElementById('authBtn');
-    const error = document.getElementById('authError');
-
-    function tryLogin() {
-        if (input.value === PASS) {
-            sessionStorage.setItem(KEY, '1');
-            overlay.classList.add('auth-overlay--hide');
+    function handleDrop(itemName, itemElement) {
+        if (itemName === 'lipstick' || itemName === 'glasses') {
+            isBusy = true;
+            feedbackCross.classList.add('active', 'shake');
+            
             setTimeout(() => {
-                overlay.remove();
-                unlock();
-            }, 300);
-        } else {
-            error.textContent = 'Неверный пароль';
-            input.value = '';
-            input.focus();
+                feedbackCross.classList.remove('active', 'shake');
+                returnItemToOrigin(itemElement);
+                isBusy = false;
+                startIdleTimer();
+            }, 1200);
+            
+        } else if (itemName === 'tooth') {
+            isBusy = true;
+            isGameOver = true;
+            stopIdleAnimation();
+            
+            itemElement.style.opacity = 0;
+            feedbackCheck.classList.add('active');
+            
+            setTimeout(() => {
+                feedbackCheck.classList.remove('active');
+                bgMain.classList.remove('active');
+                bgReady.classList.add('active');
+                
+                dragItemsContainer.classList.add('hidden');
+                banner.classList.remove('has-cursor');
+                customCursor.style.opacity = '0';
+                
+                setTimeout(() => {
+                    triggerSuccessFinale();
+                }, 1500);
+                
+            }, 1200);
         }
     }
 
-    btn.addEventListener('click', tryLogin);
-    input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') tryLogin();
-    });
-})();
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 1.5 + Math.random() * 5.5;
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed - 1.0; 
+            
+            this.radius = 0.4 + Math.random() * 1.1;
+            
+            const colors = ['#FFDF00', '#D4AF37', '#FFD700', '#ECE2C6', '#FFECB3', '#FFFFFF'];
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            
+            this.gravity = 0.07;
+            this.opacity = 1;
+            this.fadeSpeed = 0.006 + Math.random() * 0.01;
+            this.life = 1;
+            
+            this.sparklePhase = Math.random() * Math.PI * 2;
+            this.sparkleSpeed = 0.12 + Math.random() * 0.12;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.vy += this.gravity;
+            this.vx *= 0.985;
+            this.vy *= 0.985;
+            this.opacity -= this.fadeSpeed;
+            this.life = Math.max(0, this.opacity);
+            this.sparklePhase += this.sparkleSpeed;
+        }
+
+        draw() {
+            const currentOpacity = this.life * (0.6 + 0.4 * Math.sin(this.sparklePhase));
+            
+            ctx.save();
+            ctx.globalAlpha = currentOpacity;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fill();
+            
+            if (this.radius > 0.8) {
+                ctx.shadowBlur = 4;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius * 1.3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.restore();
+        }
+    }
+
+    function triggerSuccessFinale() {
+        particles = [];
+        const spawnX = canvas.width / 2;
+        const spawnY = canvas.height / 2 - 20;
+        
+        for (let i = 0; i < 130; i++) {
+            particles.push(new Particle(spawnX, spawnY));
+        }
+        
+        if (!isParticleLoopRunning) {
+            isParticleLoopRunning = true;
+            requestAnimationFrame(updateParticles);
+        }
+        
+        setTimeout(() => {
+            bgReady.classList.remove('active');
+            bgEnd.classList.add('active');
+            
+            banner.classList.remove('has-cursor');
+            customCursor.style.opacity = '0';
+        }, 150);
+        
+        setTimeout(() => {
+            isBusy = false;
+            
+            setTimeout(() => {
+                if (isGameOver) restartGame();
+            }, 4500);
+        }, 500);
+    }
+
+    function updateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles = particles.filter(p => p.life > 0);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        
+        if (particles.length > 0) {
+            requestAnimationFrame(updateParticles);
+        } else {
+            isParticleLoopRunning = false;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    }
+
+    function restartGame() {
+        isGameOver = false;
+        isBusy = false;
+        isUserActive = false;
+        activeDragItem = null;
+        
+        particles = [];
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        feedbackCross.classList.remove('active', 'shake');
+        feedbackCheck.classList.remove('active');
+
+        
+        bgReady.classList.remove('active');
+        bgEnd.classList.remove('active');
+        bgMain.classList.add('active');
+        
+        dragItemsContainer.classList.remove('hidden');
+        customCursor.style.opacity = '';
+        banner.classList.remove('has-cursor');
+        
+        dragItems.forEach(item => {
+            item.classList.remove('dragging', 'returning', 'hovered');
+            item.style.transform = 'translate3d(0, 0, 0)';
+            item.style.opacity = '';
+            item.style.zIndex = '';
+        });
+        
+        stopIdleAnimation();
+        startIdleTimer();
+    }
+
+    startIdleTimer();
+});

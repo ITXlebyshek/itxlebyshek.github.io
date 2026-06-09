@@ -1,69 +1,49 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Генератор заявок</title>
+    <title>Интерактивный мини-игровой баннер</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <div class="app">
-        <h1 class="title">Генератор заявок</h1>
+    <div class="banner-container">
+        <div class="game-banner" id="gameBanner">
+            <div class="banner-bg active" id="bgMain" style="background-image: url('assets/background.png');"></div>
+            <div class="banner-bg" id="bgReady" style="background-image: url('assets/ready.png');"></div>
+            <div class="banner-bg" id="bgEnd" style="background-image: url('assets/end.png');"></div>
 
-        <form id="formZayavki" class="form" autocomplete="off">
-            <div class="form__row">
-                <div class="form__group">
-                    <label class="form__label" for="nomer">Номер заявки</label>
-                    <input type="number" id="nomer" class="form__input" placeholder="28" min="1" required>
+            <div class="face-target" id="faceTarget"></div>
+
+            <div class="drag-items-container" id="dragItemsContainer">
+                <div class="drag-item lipstick" id="itemLipstick" data-item="lipstick">
+                    <img src="assets/lipstick.png" alt="Помада" draggable="false">
                 </div>
-                <div class="form__group">
-                    <label class="form__label" for="vremya_napravleniya">Время направления</label>
-                    <input type="time" id="vremya_napravleniya" class="form__input" required>
+                <div class="drag-item glasses" id="itemGlasses" data-item="glasses">
+                    <img src="assets/glasses.png" alt="Очки" draggable="false">
+                </div>
+                <div class="drag-item tooth" id="itemTooth" data-item="tooth">
+                    <img src="assets/tooth.png" alt="Зуб" draggable="false">
                 </div>
             </div>
 
-            <div class="form__row">
-                <div class="form__group">
-                    <label class="form__label">Дата и время решения</label>
-                    <div class="form__pair">
-                        <input type="date" id="data_resheniya_date" class="form__input" required>
-                        <input type="time" id="data_resheniya_time" class="form__input" required>
-                    </div>
-                </div>
-                <div class="form__group">
-                    <label class="form__label">Дата и время начала передачи</label>
-                    <div class="form__pair">
-                        <input type="date" id="data_nachala_date" class="form__input" required>
-                        <input type="time" id="data_nachala_time" class="form__input" required>
-                    </div>
-                </div>
+            <div class="feedback-icon cross-icon" id="feedbackCross">
+                <img src="assets/cross.png" alt="Неверно" draggable="false">
+            </div>
+            <div class="feedback-icon check-icon" id="feedbackCheck">
+                <img src="assets/checkmark.png" alt="Верно" draggable="false">
             </div>
 
-            <div class="form__group">
-                <div class="form__label-row">
-                    <label class="form__label" for="tekst">Текст оповещения</label>
-                    <span class="form__counter"><span id="tekstCount">0</span>/134</span>
-                </div>
-                <textarea id="tekst" class="form__input form__textarea" rows="2" maxlength="134"
-                    placeholder="Введите текст оповещения..." required></textarea>
-            </div>
 
-            <button type="submit" class="form__submit" id="submitBtn">
-                <span class="form__submit-text">Скачать ZIP</span>
-                <span class="form__submit-loader" id="loader"></span>
-            </button>
-        </form>
+
+            <div class="game-cursor" id="gameCursor"></div>
+        </div>
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.7/dist/pizzip.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docxtemplater@3.50.0/build/docxtemplater.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
     <script src="js/app.js"></script>
 </body>
-
 </html>
