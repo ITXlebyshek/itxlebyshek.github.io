@@ -12,36 +12,53 @@
 <body>
     <div class="banner-container">
         <div class="game-banner" id="gameBanner">
-            <div class="banner-bg active" id="bgMain" style="background-image: url('assets/background.png');"></div>
-            <div class="banner-bg" id="bgReady" style="background-image: url('assets/ready.png');"></div>
-            <div class="banner-bg" id="bgEnd" style="background-image: url('assets/end.png');"></div>
+            <!-- Front Face (Starts active, gameplay assets) -->
+            <div class="banner-face banner-face-front">
+                <div class="banner-bg active" id="bgMain" style="background-image: url('assets/background.png');"></div>
 
-            <div class="face-target" id="faceTarget"></div>
-
-            <div class="drag-items-container" id="dragItemsContainer">
-                <div class="drag-item lipstick" id="itemLipstick" data-item="lipstick">
-                    <img src="assets/lipstick.png" alt="Помада" draggable="false">
+                <div class="face-target" id="faceTarget"></div>
+                <div class="drag-items-container" id="dragItemsContainer">
+                    <div class="drag-item lipstick" id="itemLipstick" data-item="lipstick">
+                        <img src="assets/lipstick.png" alt="Помада" draggable="false">
+                    </div>
+                    <div class="drag-item glasses" id="itemGlasses" data-item="glasses">
+                        <img src="assets/glasses.png" alt="Очки" draggable="false">
+                    </div>
+                    <div class="drag-item tooth" id="itemTooth" data-item="tooth">
+                        <img src="assets/tooth.png" alt="Зуб" draggable="false">
+                    </div>
                 </div>
-                <div class="drag-item glasses" id="itemGlasses" data-item="glasses">
-                    <img src="assets/glasses.png" alt="Очки" draggable="false">
+                <div class="feedback-icon cross-icon" id="feedbackCross">
+                    <img src="assets/cross.png" alt="Неверно" draggable="false">
                 </div>
-                <div class="drag-item tooth" id="itemTooth" data-item="tooth">
-                    <img src="assets/tooth.png" alt="Зуб" draggable="false">
+                <div class="feedback-icon check-icon" id="feedbackCheck">
+                    <img src="assets/checkmark.png" alt="Верно" draggable="false">
                 </div>
+                <div class="game-cursor" id="gameCursor"></div>
             </div>
 
-            <div class="feedback-icon cross-icon" id="feedbackCross">
-                <img src="assets/cross.png" alt="Неверно" draggable="false">
+            <!-- Back Face (Becomes visible at 180-degree flip, success graphics) -->
+            <div class="banner-face banner-face-back">
+                <div class="banner-bg" id="bgReady" style="background-image: url('assets/ready.png');"></div>
+                <div class="banner-bg" id="bgEnd" style="background-image: url('assets/end.png');"></div>
+                <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+                <div class="magic-rays" id="magicRays">
+                    <div class="rays-spinner">
+                        <div class="ray" style="transform: rotate(0deg);"></div>
+                        <div class="ray" style="transform: rotate(45deg);"></div>
+                        <div class="ray" style="transform: rotate(90deg);"></div>
+                        <div class="ray" style="transform: rotate(135deg);"></div>
+                    </div>
+                </div>
+                <div class="magic-glow" id="magicGlow"></div>
             </div>
-            <div class="feedback-icon check-icon" id="feedbackCheck">
-                <img src="assets/checkmark.png" alt="Верно" draggable="false">
-            </div>
 
-
-
-            <div class="game-cursor" id="gameCursor"></div>
+            <!-- Card thickness edges (2px depth) -->
+            <div class="banner-thickness-side side-left"></div>
+            <div class="banner-thickness-side side-right"></div>
+            <div class="banner-thickness-side side-top"></div>
+            <div class="banner-thickness-side side-bottom"></div>
         </div>
-        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
     </div>
 
     <script src="js/app.js"></script>

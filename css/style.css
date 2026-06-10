@@ -22,11 +22,11 @@ body {
 }
 
 .banner-container {
-    background: #000;
     overflow: visible;
     position: relative;
     width: calc(var(--banner-w) * var(--banner-scale));
     height: calc(var(--banner-h) * var(--banner-scale));
+    perspective: 1000px;
 }
 
 .game-banner {
@@ -35,13 +35,15 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    transform: scale(var(--banner-scale));
-    transform-origin: top left;
+    transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(var(--banner-scale));
+    transform-origin: center center;
     border-radius: 8px;
-    overflow: hidden;
     user-select: none;
     -webkit-user-select: none;
     cursor: none !important;
+    transform-style: preserve-3d;
+    background: transparent;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.15);
 }
 
 .game-banner *,
@@ -62,9 +64,94 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 1;
     pointer-events: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 8px;
+}
+.banner-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.banner-face-front {
+    transform: translateZ(1px);
+    background: #1e293b;
+}
+
+.banner-face-back {
+    display: none;
+    transform: rotateY(180deg) translateZ(1px);
+    background: #1e293b;
+}
+
+/* Toggle displays during card flipping/flipped states to prevent compositor bugs */
+.game-banner.card-flipping .banner-face-back,
+.game-banner.card-flipped .banner-face-back,
+.game-banner.explode-scale .banner-face-back {
+    display: block;
+}
+
+.game-banner.card-flipped-state .banner-face-front {
+    display: none !important;
+}
+
+.banner-thickness-side {
+    position: absolute;
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.banner-thickness-side.side-left {
+    width: 2px;
+    height: 100%;
+    left: -1px;
+    top: 0;
+    transform: rotateY(-90deg);
+}
+
+.banner-thickness-side.side-right {
+    width: 2px;
+    height: 100%;
+    right: -1px;
+    top: 0;
+    transform: rotateY(90deg);
+}
+
+.banner-thickness-side.side-top {
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: -1px;
+    transform: rotateX(90deg);
+}
+
+.banner-thickness-side.side-bottom {
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -1px;
+    transform: rotateX(-90deg);
+}
+
+.game-banner.slow-fade .banner-bg {
+    transition: opacity 3.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.game-banner.instant-change .banner-bg {
+    transition: none !important;
 }
 
 .banner-bg.active {
@@ -198,6 +285,12 @@ body {
     transform: translate(-50%, -50%) scale(1.0);
 }
 
+.feedback-icon.fade-out {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.75);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 .cross-icon {
     width: 103px;
     height: 103px;
@@ -236,12 +329,191 @@ body {
 
 .particles-canvas {
     position: absolute;
-    left: -60px;
-    top: -60px;
-    width: calc(100% + 120px);
-    height: calc(100% + 120px);
+    left: -40px;
+    top: -40px;
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
     z-index: 40;
     pointer-events: none;
 }
 
+.magic-glow {
+    position: absolute;
+    top: 200px;
+    left: 120px;
+    width: 300px;
+    height: 300px;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 60;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.05);
+    filter: blur(15px);
+    will-change: transform, opacity, filter;
+}
 
+.magic-glow.active {
+    animation: glowIrisIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.magic-glow.fade-out {
+    animation: glowFadeOut 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.magic-rays {
+    position: absolute;
+    top: 200px;
+    left: 120px;
+    width: 1px;
+    height: 1px;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+    will-change: transform, opacity;
+}
+
+.magic-rays.active {
+    animation: raysIrisIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.magic-rays.fade-out {
+    animation: raysFadeOut 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.rays-spinner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: raysSpin 8s linear infinite;
+}
+
+.ray {
+    position: absolute;
+    top: -240px;
+    left: -20px;
+    width: 40px;
+    height: 480px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
+    filter: blur(8px);
+    transform-origin: center center;
+}
+
+@keyframes glowIrisIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0.05);
+        filter: blur(15px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(3.5);
+        filter: blur(5px);
+        opacity: 1;
+    }
+}
+
+@keyframes glowFadeOut {
+    0% {
+        transform: translate(-50%, -50%) scale(3.5);
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 0%);
+        filter: blur(5px);
+        opacity: 1;
+    }
+    10% {
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 15%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(3.5);
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 95%, rgba(255, 255, 255, 1) 100%);
+        filter: blur(25px);
+        opacity: 0;
+    }
+}
+
+@keyframes raysIrisIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 1;
+    }
+}
+
+@keyframes raysFadeOut {
+    0% {
+        transform: scale(1.6);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}
+
+@keyframes raysSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.game-banner.explode-scale {
+    animation: bannerExplodeScale 3.2s forwards;
+}
+
+@keyframes bannerExplodeScale {
+    0% {
+        transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(var(--banner-scale)) rotateY(180deg);
+        animation-timing-function: ease-in;
+    }
+    68.75% { /* 2.20s: implosion peak (shrunk to 0.95) */
+        transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(calc(var(--banner-scale) * 0.95)) rotateY(180deg);
+        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    75% { /* 2.40s: explosion peak (stretched to 1.08) */
+        transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(calc(var(--banner-scale) * 1.08)) rotateY(180deg);
+        animation-timing-function: ease-out;
+    }
+    100% { /* 3.2s: return to normal */
+        transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(var(--banner-scale)) rotateY(180deg);
+    }
+}
+
+.game-banner.card-flipping {
+    animation: cardFlipTransition 1.2s linear forwards;
+}
+
+.game-banner.card-flipped {
+    transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(var(--banner-scale)) rotateY(180deg);
+}
+
+
+
+@keyframes cardFlipTransition {
+    0% {
+        transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(var(--banner-scale)) rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+        animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); /* smooth ease-in-out segment */
+    }
+    50% {
+        transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(1.68) rotateY(90deg) rotateX(12deg) rotateZ(3deg);
+        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); /* smooth ease-out to overshoot */
+    }
+    82% {
+        transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(calc(var(--banner-scale) * 0.98)) rotateY(186deg) rotateX(-2deg) rotateZ(-0.5deg);
+        animation-timing-function: ease-in-out; /* gentle return */
+    }
+    100% {
+        transform: translate(calc(var(--banner-w) * (var(--banner-scale) - 1) / 2), calc(var(--banner-h) * (var(--banner-scale) - 1) / 2)) scale(var(--banner-scale)) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
+    }
+}
